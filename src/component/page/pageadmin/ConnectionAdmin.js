@@ -5,23 +5,23 @@ const varaible = {
   email: "",
   password: "",
 };
-const validate = () => {
-  let tbs = {};
-  tbs.email = /$^|.+@.+..+/.test(values.email) ? "" : "completer..";
-  tbs.password = values.password ? "" : "completer..";
-  setError({ ...tbs });
-  return Object.values(tbs).every((x) => x === "");
-};
-const { values, onchange, error, setError, videlechamps } = Index.Etat(
-  varaible
-);
-
-const Logine = () => {
-  if (validate()) {
-  }
-};
 
 function ConnectionAdmin() {
+  const validate = () => {
+    let tbs = {};
+    tbs.email = /$^|.+@.+..+/.test(values.email) ? "" : "completer..";
+    tbs.password = values.password ? "" : "completer..";
+    setError({ ...tbs });
+    return Object.values(tbs).every((x) => x === "");
+  };
+  const { values, onchange, error, setError, videlechamps } = Index.Etat(
+    varaible
+  );
+
+  const Logine = () => {
+    if (validate()) {
+    }
+  };
   return (
     <Grid container justify="center">
       <Index.Form>

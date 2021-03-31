@@ -7,6 +7,7 @@ import CreationCompte from "./component/page/pageuser/CreationCompte";
 import { Provider } from "react-redux";
 import Store from "./component/redux/reducermagasin/Store";
 import Homes from "./component/page/pageadmin/Homes";
+import ConnectionAdmin from "./component/page/pageadmin/ConnectionAdmin";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/connection" component={Connection} />
           <Route path="/creationcompte" component={CreationCompte} />
           <Route path="/home-admine" component={Homes} />
+          <Route path="/admine-connection" component={ConnectionAdmin} />
         </Switch>
       </Provider>
     </div>
