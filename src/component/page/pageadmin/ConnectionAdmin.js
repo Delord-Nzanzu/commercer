@@ -1,5 +1,7 @@
-import { Grid, Paper } from "@material-ui/core";
+import { Button, Grid, Paper } from "@material-ui/core";
 import { Index } from "../../etat/Index";
+import { useDispatch } from "react-redux";
+import ActionIconsAdmin from "../../redux/actionicons/ActionIconsAdmin";
 
 const varaible = {
   email: "",
@@ -7,6 +9,7 @@ const varaible = {
 };
 
 function ConnectionAdmin() {
+  const dispatch = useDispatch();
   const validate = () => {
     let tbs = {};
     tbs.email = /$^|.+@.+..+/.test(values.email) ? "" : "completer..";
@@ -20,10 +23,11 @@ function ConnectionAdmin() {
 
   const Logine = () => {
     if (validate()) {
+      dispatch(ActionIconsAdmin());
     }
   };
   return (
-    <Grid container justify="center">
+    <Grid container justify="center" style={{ marginTop: "2%" }}>
       <Index.Form>
         <Paper elevation={0}>
           <Grid item xs={12}>
@@ -45,6 +49,24 @@ function ConnectionAdmin() {
               type="password"
               variant="outlined"
             />
+            <Button
+              color="primary"
+              variant="outlined"
+              onClick={() => {
+                Logine();
+              }}
+              style={{ marginLeft: "2%" }}
+            >
+              connection
+            </Button>
+            <Button
+              color="secondary"
+              variant="outlined"
+              onClick={() => videlechamps()}
+              style={{ marginLeft: "1%" }}
+            >
+              Annuler
+            </Button>
           </Grid>
         </Paper>
       </Index.Form>
