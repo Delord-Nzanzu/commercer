@@ -7,13 +7,19 @@ import {
   ListItem,
   Typography,
 } from "@material-ui/core";
-import { AddShoppingCart, ExitToApp, Menu } from "@material-ui/icons";
+import {
+  AccountCircle,
+  AddShoppingCart,
+  ExitToApp,
+  Menu,
+} from "@material-ui/icons";
 import React, { useState } from "react";
 import { DataMEnu } from "../../datas/Data";
 import { Link } from "react-router-dom";
 import ItemSideBarA from "./ItemSideBarA";
 import { useSelector, useDispatch } from "react-redux";
 import DownItem from "../../menu/drodownitem/DownItem";
+import DrownItemUser from "../../menu/drodownitem/DrownItemUser";
 import AfficheAcha from "../../redux/actionicons/AfficheAcha";
 
 function ItemMenu() {
@@ -22,14 +28,18 @@ function ItemMenu() {
   const etatuser = useSelector((state) => state.logineicones);
   const achat = useSelector((state) => state.achat);
   const [open2, setOpen2] = React.useState(false);
+  const [open3, setOpen3] = React.useState(false);
   const anchorRef = React.useRef(null);
+  const anchorRef2 = React.useRef(null);
   const dispth = useDispatch();
   const dispth2 = useDispatch();
 
   const handleToggle = () => {
     setOpen2((prevOpen) => !prevOpen);
   };
-
+  const handleToggle2 = () => {
+    setOpen3((prevOpen) => !prevOpen);
+  };
   const ActiveDrawer = () => {
     setOpens(true);
   };
@@ -110,6 +120,21 @@ function ItemMenu() {
               </Badge>
             )}
           </IconButton>
+          {etatuser === false ? (
+            ""
+          ) : (
+            <IconButton
+              ref={anchorRef2}
+              aria-controls={open3 ? "menu-list-grow" : undefined}
+              aria-haspopup="true"
+              onClick={handleToggle2}
+              variant="text"
+              size="small"
+            >
+              <AccountCircle style={{ color: "white" }} />
+            </IconButton>
+          )}
+
           <IconButton>
             <ExitToApp style={{ color: "white" }} fontSize="small" />
             <Link to="/connection" style={{ color: "white" }}>
@@ -122,6 +147,7 @@ function ItemMenu() {
       </Grid>
       <ItemSideBarA open={opens} setOpen={setOpens} />
       <DownItem open={open2} setOpen={setOpen2} anchorRef={anchorRef} />
+      <DrownItemUser open={open3} setOpen={setOpen3} anchorRef={anchorRef2} />
     </Grid>
   );
 }

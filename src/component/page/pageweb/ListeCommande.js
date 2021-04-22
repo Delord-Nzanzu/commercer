@@ -10,10 +10,24 @@ import MaterialTable from "material-table";
 import { useSelector } from "react-redux";
 import { BackspaceSharp } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
+import { Index } from "../../etat/Index";
+import { useHistory } from "react-router-dom";
+
+const variable = {
+  address: "",
+};
 
 function ListeCommande(props) {
   const { achat } = props;
+  const validate = () => {
+    let tbs = {};
+    tbs.address = values.address ? "" : "completer cette champs";
+    setError({ ...tbs });
+    return Object.values(tbs).every((e) => e === "");
+  };
+  const { values, onchange, error, setError } = Index.Etat(variable);
   const totalAch = useSelector((store) => store.achat);
+
   const dispath = useDispatch();
   let tx = achat.map((item) => {
     return {
@@ -22,7 +36,17 @@ function ListeCommande(props) {
       prix: item.prix + " " + item.devise,
     };
   });
-
+  let xx = 0;
+  achat.map((item) => {
+    return (xx = parseFloat(xx) + item.prix);
+  });
+  const hs = useHistory();
+  //validate
+  const valide = () => {
+    if (validate()) {
+      hs.push("/Paiement");
+    }
+  };
   const colonne = [
     {
       title: "id",
@@ -53,13 +77,38 @@ function ListeCommande(props) {
             />
           </Grid>
           <Grid item xs={2}>
-            <Typography variant="subtitle1">
-              Quaniter commander: {totalAch}
+            <Typography
+              variant="subtitle1"
+              style={{ marginLeft: "5%", fontSize: "13px" }}
+            >
+              Quaniter commander: {totalAch} pièce(s)
             </Typography>
-            <Typography variant="subtitle2">Total a payer: $0</Typography>
-            <Button variant="outlined" size="small" color="primary">
-              Acheter
-            </Button>
+            <Typography
+              variant="subtitle1"
+              style={{ marginBottom: "5%", marginLeft: "5%" }}
+            >
+              Total a payer: $ {xx}
+            </Typography>
+            <Index.Form>
+              <Index.Input
+                label="Addresse Complet"
+                name="address"
+                value={values.address}
+                onChange={onchange}
+                type=""
+                variant="outlined"
+                error={error.address}
+              />
+              <Button
+                variant="outlined"
+                size="small"
+                color="primary"
+                style={{ marginLeft: "5%" }}
+                onClick={() => valide()}
+              >
+                Acheter
+              </Button>
+            </Index.Form>
           </Grid>
         </Grid>
       </Container>

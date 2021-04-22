@@ -3,12 +3,12 @@ import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
 import React from "react";
-import { DataDownItemCategorie } from "../../datas/Data";
+import { DataUser } from "../../datas/Data";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { Grid } from "@material-ui/core";
 
-function DownItem(props) {
+function DownItemUser(props) {
   const { open, setOpen, anchorRef } = props;
 
   const handleClose = (event) => {
@@ -43,7 +43,7 @@ function DownItem(props) {
             elevation={1}
             style={{ backgroundColor: "white", maxWidth: "100%" }}
           >
-            {DataDownItemCategorie.map((item) => {
+            {DataUser.map((item) => {
               return (
                 <ClickAwayListener onClickAway={handleClose} key={item.id}>
                   <MenuList
@@ -53,6 +53,7 @@ function DownItem(props) {
                   >
                     <Grid container>
                       {item.icons}
+
                       <MenuItem>{item.title}</MenuItem>
                     </Grid>
                   </MenuList>
@@ -66,4 +67,4 @@ function DownItem(props) {
   );
 }
 
-export default DownItem;
+export default DownItemUser;

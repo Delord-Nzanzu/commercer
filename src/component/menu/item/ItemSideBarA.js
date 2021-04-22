@@ -19,7 +19,7 @@ function ItemSideBarA(props) {
         style={{
           height: "100%",
           width: "200px",
-          backgroundColor: "#5ECDC6",
+          backgroundColor: "#608585",
         }}
       >
         <Grid item style={{ marginTop: "20%" }}>

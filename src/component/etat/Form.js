@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
   route: {
     "& .MuiFormControl-root": {
       width: "80%",
-      margin: theme.spacing(1),
+      // margin: theme.spacing(1),
       padding: theme.spacing(1),
     },
   },

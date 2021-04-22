@@ -9,6 +9,10 @@ import Store from "./component/redux/reducermagasin/Store";
 import Homes from "./component/page/pageadmin/Homes";
 import ConnectionAdmin from "./component/page/pageadmin/ConnectionAdmin";
 import Produit from "./component/page/pageadmin/Produit";
+import Commande from "./component/page/pageadmin/Commande";
+// import CommandeDay from "./component/page/pageadmin/CommandeDay";
+// import ItemCommande from "./component/menu/item/ItemCommande";
+import Paiement from "./component/page/pageweb/Paiement";
 
 function App() {
   return (
@@ -22,6 +26,8 @@ function App() {
           <Route path="/adminehome" component={Homes} />
           <Route path="/admine" component={ConnectionAdmin} />
           <Route path="/produit" component={Produit} />
+          <Route path="/commande" component={Commande} />
+          <Route path="/paiement" component={Paiement} />
         </Switch>
       </Provider>
     </div>

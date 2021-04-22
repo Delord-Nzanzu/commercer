@@ -1,6 +1,7 @@
 import { Button, Container, Grid, Typography } from "@material-ui/core";
 import React from "react";
 import { Index } from "../../etat/Index";
+import MaterialTable from "material-table";
 
 function Produit() {
   const taille = [
@@ -15,6 +16,7 @@ function Produit() {
     prixunitaire: "",
     categorie: "",
     taille: "",
+    file: "",
   };
 
   const validate = () => {
@@ -33,11 +35,31 @@ function Produit() {
     variable
   );
 
+  const column = [
+    {
+      title: "designation",
+      field: "designation",
+    },
+    {
+      title: "quantiter",
+      field: "quantiter",
+    },
+    {
+      title: "prix",
+      field: "prix",
+    },
+    {
+      title: "categorie",
+      field: "categorie",
+    },
+    {
+      title: "taille",
+      field: "taille",
+    },
+  ];
+
   return (
     <Grid container justify="center" style={{ backgroundColor: "#F2F2F2" }}>
-      <Typography variant="h4" align="center">
-        Gestion des produits
-      </Typography>
       <Container
         style={{
           backgroundColor: "#ffffff",
@@ -45,6 +67,9 @@ function Produit() {
           marginTop: "2%",
         }}
       >
+        <Typography variant="h6" align="left">
+          Gestion des produits
+        </Typography>
         <Index.Form>
           <Grid container>
             <Grid item xs={6}>
@@ -55,7 +80,7 @@ function Produit() {
                 onChange={onchange}
                 error={error.designationproduit}
                 type=""
-                variant="standard"
+                variant="outlined"
               />
               <Index.Input
                 label="Quantiter"
@@ -64,7 +89,7 @@ function Produit() {
                 onChange={onchange}
                 error={error.quantite}
                 type="number"
-                variant="standard"
+                variant="outlined"
               />
               <Index.Input
                 label="Prix unitaire"
@@ -73,10 +98,17 @@ function Produit() {
                 onChange={onchange}
                 error={error.prixunitaire}
                 type="number"
-                variant="standard"
+                variant="outlined"
               />
             </Grid>
             <Grid item xs={6}>
+              <Index.Input
+                name="file"
+                value={values.file}
+                onChange={onchange}
+                error={error.categorie}
+                type="file"
+              />
               <Index.Input
                 label="Categorie"
                 name="categorie"
@@ -84,7 +116,7 @@ function Produit() {
                 onChange={onchange}
                 error={error.categorie}
                 type=""
-                variant="standard"
+                variant="outlined"
               />
               <Index.Combobox
                 label="Taille"
@@ -108,6 +140,11 @@ function Produit() {
             </Grid>
           </Grid>
         </Index.Form>
+        <MaterialTable
+          title="Liste des produits"
+          columns={column}
+          style={{ marginBottom: "2%", marginTop: "1%", padding: "2%" }}
+        />
       </Container>
     </Grid>
   );
