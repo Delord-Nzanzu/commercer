@@ -2,6 +2,7 @@ import { Button, Grid, Paper } from "@material-ui/core";
 import { Index } from "../../etat/Index";
 import { useDispatch } from "react-redux";
 import ActionIconsAdmin from "../../redux/actionicons/ActionIconsAdmin";
+import { useHistory, Link } from "react-router-dom";
 
 const varaible = {
   email: "",
@@ -9,6 +10,7 @@ const varaible = {
 };
 
 function ConnectionAdmin() {
+  const sh = useHistory();
   const dispatch = useDispatch();
   const validate = () => {
     let tbs = {};
@@ -23,6 +25,7 @@ function ConnectionAdmin() {
 
   const Logine = () => {
     if (validate()) {
+      sh.push("/adminehome");
       dispatch(ActionIconsAdmin());
     }
   };
@@ -49,6 +52,7 @@ function ConnectionAdmin() {
               type="password"
               variant="outlined"
             />
+
             <Button
               color="primary"
               variant="outlined"
@@ -59,6 +63,7 @@ function ConnectionAdmin() {
             >
               connection
             </Button>
+
             <Button
               color="secondary"
               variant="outlined"

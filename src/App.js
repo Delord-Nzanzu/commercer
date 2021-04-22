@@ -16,11 +16,11 @@ function App() {
       <Provider store={Store}>
         <Menu />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/acceuille" component={Home} />
           <Route path="/connection" component={Connection} />
           <Route path="/creationcompte" component={CreationCompte} />
-          <Route path="/home-admine" component={Homes} />
-          <Route path="/admine-connection" component={ConnectionAdmin} />
+          <Route path="/adminehome" component={Homes} />
+          <Route path="/admine" component={ConnectionAdmin} />
           <Route path="/produit" component={Produit} />
         </Switch>
       </Provider>

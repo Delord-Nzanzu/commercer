@@ -1,6 +1,6 @@
 import { Button, Grid, makeStyles, Paper, Typography } from "@material-ui/core";
 import { Index } from "../../etat/Index";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ActionUser from "../../redux/actionicons/ActionUser";
 import { useDispatch } from "react-redux";
 
@@ -19,7 +19,7 @@ const varaible = {
 function Connection() {
   const dispatch = useDispatch();
   const classes = useStyles();
-  // let history = useHistory().push("//home-admine");
+  const hstoiry = useHistory();
 
   const validate = () => {
     let tbs = {};
@@ -35,6 +35,7 @@ function Connection() {
   const logine = () => {
     if (validate()) {
       dispatch(ActionUser());
+      hstoiry.push("/acceuille");
     }
   };
   return (

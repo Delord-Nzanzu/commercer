@@ -10,7 +10,6 @@ function ActionIconsAdmin(state = initialisation, action) {
     case "etatadmin":
       return {
         ...state,
-
         etatadmin: (state.etatadmin = true),
       };
     case "logineicones":

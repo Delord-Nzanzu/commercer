@@ -1,4 +1,5 @@
 import {
+  Badge,
   Button,
   Grid,
   IconButton,
@@ -93,10 +94,21 @@ function ItemMenu() {
         <Grid container direction="row" justify="flex-end">
           {/*  clic sur la verification du liste de commande  */}
           <IconButton onClick={() => chg()}>
-            <AddShoppingCart fontSize="large" color="secondary" />
-            <Typography variant="subtitle1" style={{ color: "white" }}>
-              {achat === 0 ? "" : achat}
-            </Typography>
+            {achat === 0 ? (
+              <Badge badgeContent="0" color="secondary">
+                <AddShoppingCart
+                  fontSize="default"
+                  style={{ color: "white" }}
+                />
+              </Badge>
+            ) : (
+              <Badge badgeContent={achat} color="secondary">
+                <AddShoppingCart
+                  fontSize="default"
+                  style={{ color: "white" }}
+                />
+              </Badge>
+            )}
           </IconButton>
           <IconButton>
             <ExitToApp style={{ color: "white" }} fontSize="small" />

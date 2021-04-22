@@ -1,7 +1,7 @@
 import { AddCircle, Dashboard } from "@material-ui/icons";
 
 export const DataMEnu = [
-  { id: "1", title: "Acceuille", link: "/", type: "disparess" },
+  { id: "1", title: "Acceuille", link: "/acceuille", type: "disparess" },
   { id: "2", title: "Nous contacter", link: "/contacter", type: "disparess" },
   { id: "3", title: "Aide", link: "/aide", type: "disparess" },
 ];

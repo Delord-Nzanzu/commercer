@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@material-ui/core";
 import React from "react";
 
-function Home() {
+function Homes() {
   return (
     <Grid container>
       <Grid item>
@@ -11,4 +11,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Homes;
