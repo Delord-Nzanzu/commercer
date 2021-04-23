@@ -149,13 +149,13 @@ export const DataCommande = [
   {
     id: "1",
     title: "Journalier",
-    link: "/daycommande",
+    link: "/commande-journaliere",
     icons: <Today style={{ color: "blue" }} />,
   },
   {
     id: "2",
     title: "Tous les commandes",
-    link: "/#",
+    link: "/commandes",
     icons: <Apps style={{ color: "blue" }} />,
   },
 ];

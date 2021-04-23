@@ -1,8 +1,6 @@
 import { Container, Grid } from "@material-ui/core";
 import React from "react";
-import ItemCommande from "../../menu/item/ItemCommande";
-import { Switch, Route } from "react-router-dom";
-import TousComande from "./TousComande";
+import CommandeDay from "./CommandeDay";
 
 function Commande() {
   return (
@@ -15,11 +13,7 @@ function Commande() {
         }}
       >
         <Grid item xs={12}>
-          <ItemCommande />
-          <Switch>
-            <Route exact={true} path="/daycommande" component={TousComande} />
-          </Switch>
-          <TousComande />
+          <CommandeDay />
         </Grid>
       </Container>
     </Grid>

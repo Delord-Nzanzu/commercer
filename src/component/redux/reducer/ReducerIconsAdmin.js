@@ -22,6 +22,11 @@ function ActionIconsAdmin(state = initialisation, action) {
         ...state,
         achat: state.achat + 1,
       };
+    case "achazero":
+      return {
+        ...state,
+        achat: state.achat * 0,
+      };
     case "afficheachat":
       return {
         ...state,

@@ -10,7 +10,8 @@ import Homes from "./component/page/pageadmin/Homes";
 import ConnectionAdmin from "./component/page/pageadmin/ConnectionAdmin";
 import Produit from "./component/page/pageadmin/Produit";
 import Commande from "./component/page/pageadmin/Commande";
-// import CommandeDay from "./component/page/pageadmin/CommandeDay";
+import CommandeDay from "./component/page/pageadmin/CommandeDay";
+import TousComande from "./component/page/pageadmin/TousComande";
 // import ItemCommande from "./component/menu/item/ItemCommande";
 import Paiement from "./component/page/pageweb/Paiement";
 
@@ -27,6 +28,8 @@ function App() {
           <Route path="/admine" component={ConnectionAdmin} />
           <Route path="/produit" component={Produit} />
           <Route path="/commande" component={Commande} />
+          <Route path="/commande-journaliere" component={CommandeDay} />
+          <Route path="/commandes" component={TousComande} />
           <Route path="/paiement" component={Paiement} />
         </Switch>
       </Provider>

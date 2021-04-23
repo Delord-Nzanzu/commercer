@@ -1,6 +1,7 @@
 import { Button, Container, Grid, makeStyles } from "@material-ui/core";
 import React from "react";
 import MaterialTable from "material-table";
+import ItemCommande from "../../menu/item/ItemCommande";
 
 const useStyles = makeStyles((theme) => ({
   bnt: {
@@ -35,9 +36,16 @@ function CommandeDay() {
     },
   ];
   return (
-    <Grid container>
+    <Grid container style={{ backgroundColor: "#F2F2F2" }}>
       <Grid item xs={12}>
-        <Container>
+        <Container
+          style={{
+            backgroundColor: "#ffffff",
+            marginTop: "1%",
+            marginBottom: "5%",
+          }}
+        >
+          <ItemCommande />
           <MaterialTable
             columns={column}
             title="Commande Journalier"
