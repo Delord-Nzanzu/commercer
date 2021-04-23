@@ -3,6 +3,7 @@ import {
   AddCircle,
   AddShoppingCart,
   Apps,
+  Create,
   Dashboard,
   SettingsPower,
   Today,
@@ -29,6 +30,12 @@ export const DataSideAdmin = [
   },
   {
     id: "3",
+    title: "Categorie",
+    lik: "/categories",
+    icons: <Create style={{ color: "white" }} />,
+  },
+  {
+    id: "4",
     title: "Commandes",
     lik: "/commande",
     icons: <AddShoppingCart style={{ color: "white" }} />,
