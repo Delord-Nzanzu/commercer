@@ -1,8 +1,15 @@
-import { Button, Container, Grid, Typography } from "@material-ui/core";
+import {
+  Button,
+  Container,
+  Grid,
+  IconButton,
+  Typography,
+} from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { Index } from "../../etat/Index";
 import Api from "../../axios/Api";
 import MaterialTable from "material-table";
+import { BorderColor, Delete } from "@material-ui/icons";
 
 const variable = {
   categorie: "",
@@ -16,14 +23,35 @@ function Categories() {
     setError({ ...tabs });
     return Object.values(tabs).every((e) => e === "");
   };
+  const update = (e) => {
+    console.log(e);
+  };
+  const data = categories.map((item) => {
+    return {
+      id: item.id,
+      designation: item.designation,
+      update: [
+        <IconButton onClick={() => update(item.id)}>
+          <BorderColor color="primary" style={{ marginRight: "5%" }} />
+        </IconButton>,
+        <IconButton onClick={() => update(item.id)}>
+          <Delete color="secondary" />
+        </IconButton>,
+      ],
+    };
+  });
   const column = [
     {
-      title: "id",
+      title: "Numero",
       field: "id",
     },
     {
-      title: "designation",
+      title: "Catrgories",
       field: "designation",
+    },
+    {
+      title: "Section",
+      field: "update",
     },
   ];
   const { values, onchange, error, setError } = Index.Etat(variable);
@@ -31,7 +59,9 @@ function Categories() {
     try {
       Api.get("category/show/all")
         .then((result) => {
-          setCategories(result.data);
+          setTimeout(() => {
+            setCategories(result.data);
+          }, 5000);
         })
         .catch((err) => {
           console.log(err);
@@ -68,7 +98,7 @@ function Categories() {
         >
           <Typography
             variant="h5"
-            style={{ marginBottom: "5%", marginTop: "2%" }}
+            style={{ marginBottom: "1%", marginTop: "1%" }}
           >
             Categories
           </Typography>
@@ -85,12 +115,16 @@ function Categories() {
           </Index.Form>
           <Button
             variant="contained"
-            style={{ marginBottom: "5%", marginLeft: "1%" }}
+            style={{ marginBottom: "2%", marginLeft: "1%" }}
             onClick={() => Save()}
           >
             Enregistrer
           </Button>
-          <MaterialTable data={categories} columns={column} />
+          <MaterialTable
+            data={data}
+            columns={column}
+            style={{ padding: "2%" }}
+          />
         </Container>
       </Grid>
     </Grid>
