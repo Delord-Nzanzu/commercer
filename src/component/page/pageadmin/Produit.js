@@ -1,15 +1,13 @@
 import { Button, Container, Grid, Typography } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Index } from "../../etat/Index";
 import MaterialTable from "material-table";
+import Api from "../../axios/Api";
 
 function Produit() {
-  const taille = [
-    { id: "1", taille: "sl" },
-    { id: "2", taille: "md" },
-    { id: "3", taille: "sm" },
-    { id: "1", taille: "xs" },
-  ];
+  const [taille, setTaille] = useState([]);
+  const [data, setData] = useState([]);
+
   const variable = {
     designationproduit: "",
     quantite: "",
@@ -18,6 +16,29 @@ function Produit() {
     taille: "",
     file: "",
   };
+
+  useEffect(() => {
+    try {
+      Api.get("category/show/all")
+        .then((result) => {
+          setTimeout(() => {
+            setTaille(result.data);
+          }, 1000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      Api.get("product/show/all")
+        .then((result) => {
+          setTimeout(() => {
+            setData(result.data);
+          }, 2000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {}
+  });
 
   const validate = () => {
     let tbs = {};
@@ -35,22 +56,47 @@ function Produit() {
     variable
   );
 
+  const Save = () => {
+    if (validate()) {
+      try {
+        const datass = {
+          designation: values.designationproduit,
+          qteStock: parseInt(values.quantite),
+          montant: parseFloat(values.prixunitaire),
+          refCategorie: values.categorie,
+        };
+        Api.post("product/save", datass)
+          .then((result) => {})
+          .catch((err) => {
+            console.log(err);
+          });
+      } catch (error) {}
+    }
+  };
+  const datas = data.map((item) => {
+    return {
+      designation: item.designation,
+      qteStock: item.qteStock,
+      montant: item.montant,
+      refCategorie: item.refCategorie,
+    };
+  });
   const column = [
     {
-      title: "designation",
+      title: "Designation",
       field: "designation",
     },
     {
-      title: "quantiter",
-      field: "quantiter",
+      title: "Quantiter",
+      field: "qteStock",
     },
     {
-      title: "prix",
-      field: "prix",
+      title: "Prix unitaire",
+      field: "montant",
     },
     {
       title: "categorie",
-      field: "categorie",
+      field: "refCategorie",
     },
     {
       title: "taille",
@@ -142,6 +188,7 @@ function Produit() {
         </Index.Form>
         <MaterialTable
           title="Liste des produits"
+          data={datas}
           columns={column}
           style={{ marginBottom: "2%", marginTop: "1%", padding: "2%" }}
         />

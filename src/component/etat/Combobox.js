@@ -17,8 +17,8 @@ function Combobox(props) {
         <MenuItem value="">none</MenuItem>
         {item.map((item) => {
           return (
-            <MenuItem key={item.id} value={item.taille}>
-              {item.taille}
+            <MenuItem key={item.id} value={item.designation}>
+              {item.designation}
             </MenuItem>
           );
         })}

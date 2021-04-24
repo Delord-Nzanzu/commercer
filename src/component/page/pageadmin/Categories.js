@@ -20,6 +20,7 @@ const variable = {
 function Categories() {
   const [categories, setCategories] = useState([]);
   const [open, setOpen] = useState(false);
+  const [datas, setData] = useState(null);
   const valaidate = () => {
     let tabs = {};
     tabs.categorie = values.categorie ? "" : "completer";
@@ -27,21 +28,18 @@ function Categories() {
     return Object.values(tabs).every((e) => e === "");
   };
   const update = (e) => {
-    console.log(e);
     setOpen(true);
+    setData(e);
   };
   const data = categories.map((item) => {
     return {
       id: item.id,
       designation: item.designation,
-      update: [
-        <IconButton onClick={() => update(item.id)}>
+      update: (
+        <IconButton onClick={() => update(item)} key={item.id}>
           <BorderColor color="primary" style={{ marginRight: "5%" }} />
-        </IconButton>,
-        <IconButton onClick={() => update(item.id)}>
-          <Delete color="secondary" />
-        </IconButton>,
-      ],
+        </IconButton>
+      ),
     };
   });
   const column = [
@@ -65,7 +63,7 @@ function Categories() {
         .then((result) => {
           setTimeout(() => {
             setCategories(result.data);
-          }, 5000);
+          }, 2000);
         })
         .catch((err) => {
           console.log(err);
@@ -129,13 +127,8 @@ function Categories() {
             columns={column}
             style={{ padding: "2%" }}
           />
-          <MDialogue
-            title="Modifier"
-            open={open}
-            setOpen={setOpen}
-            taille="smal"
-          >
-            <UpdateCategories categories={categories} />
+          <MDialogue title="Modifier" open={open} setOpen={setOpen} taille="lg">
+            <UpdateCategories categories={datas} />
           </MDialogue>
         </Container>
       </Grid>
