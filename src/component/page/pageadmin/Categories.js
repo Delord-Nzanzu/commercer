@@ -10,6 +10,8 @@ import { Index } from "../../etat/Index";
 import Api from "../../axios/Api";
 import MaterialTable from "material-table";
 import { BorderColor, Delete } from "@material-ui/icons";
+import MDialogue from "../../menu/dialog/MDialogue";
+import UpdateCategories from "./UpdateCategories";
 
 const variable = {
   categorie: "",
@@ -17,6 +19,7 @@ const variable = {
 
 function Categories() {
   const [categories, setCategories] = useState([]);
+  const [open, setOpen] = useState(false);
   const valaidate = () => {
     let tabs = {};
     tabs.categorie = values.categorie ? "" : "completer";
@@ -25,6 +28,7 @@ function Categories() {
   };
   const update = (e) => {
     console.log(e);
+    setOpen(true);
   };
   const data = categories.map((item) => {
     return {
@@ -125,6 +129,14 @@ function Categories() {
             columns={column}
             style={{ padding: "2%" }}
           />
+          <MDialogue
+            title="Modifier"
+            open={open}
+            setOpen={setOpen}
+            taille="smal"
+          >
+            <UpdateCategories categories={categories} />
+          </MDialogue>
         </Container>
       </Grid>
     </Grid>

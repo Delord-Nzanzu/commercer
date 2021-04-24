@@ -1,13 +1,13 @@
-import { Container, Grid } from "@material-ui/core";
+import { Button, Container, Grid } from "@material-ui/core";
 import React from "react";
 import { Index } from "../../etat/Index";
 
 function UpdateCategories(props) {
-  const { categorirs } = props;
-  console.log(categorirs);
+  const { categories } = props;
+  console.log(categories.designation);
   const variable = {
     id: "",
-    Catrgories: "",
+    Catrgories: categories.designation,
   };
   const { values, onchange, error, setError } = Index.Etat(variable);
   return (
