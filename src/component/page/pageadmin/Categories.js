@@ -21,6 +21,7 @@ function Categories() {
   const [categories, setCategories] = useState([]);
   const [open, setOpen] = useState(false);
   const [datas, setData] = useState(null);
+  const [, setDidMound] = useState(false);
   const valaidate = () => {
     let tabs = {};
     tabs.categorie = values.categorie ? "" : "completer";
@@ -58,6 +59,7 @@ function Categories() {
   ];
   const { values, onchange, error, setError } = Index.Etat(variable);
   useEffect(() => {
+    setDidMound(true);
     try {
       Api.get("category/show/all")
         .then((result) => {
@@ -69,6 +71,7 @@ function Categories() {
           console.log(err);
         });
     } catch (error) {}
+    return () => setDidMound(false);
   }, [categories]);
 
   const Save = () => {

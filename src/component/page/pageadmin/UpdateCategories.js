@@ -23,11 +23,10 @@ function UpdateCategories(props) {
     if (valaidate()) {
       try {
         const data = {
-          id: values.id,
-          categorie: values.designation,
+          prod: values.designation,
         };
 
-        Api.post("category/update", data)
+        Api.post(`category/update/${values.id}`, data)
           .then((reslt) => {
             console.log(reslt);
           })

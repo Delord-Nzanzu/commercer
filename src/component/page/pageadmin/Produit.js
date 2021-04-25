@@ -7,6 +7,7 @@ import Api from "../../axios/Api";
 function Produit() {
   const [taille, setTaille] = useState([]);
   const [data, setData] = useState([]);
+  const [, setDidMound] = useState(false);
 
   const variable = {
     designationproduit: "",
@@ -18,6 +19,7 @@ function Produit() {
   };
 
   useEffect(() => {
+    setDidMound(true);
     try {
       Api.get("category/show/all")
         .then((result) => {
@@ -38,7 +40,8 @@ function Produit() {
           console.log(err);
         });
     } catch (error) {}
-  });
+    return () => setDidMound(false);
+  }, []);
 
   const validate = () => {
     let tbs = {};
@@ -66,7 +69,9 @@ function Produit() {
           refCategorie: values.categorie,
         };
         Api.post("product/save", datass)
-          .then((result) => {})
+          .then((result) => {
+            console.log(result);
+          })
           .catch((err) => {
             console.log(err);
           });
