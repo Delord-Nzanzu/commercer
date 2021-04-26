@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import { BackspaceSharp } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
 import { Index } from "../../etat/Index";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const variable = {
   address: "",
@@ -40,11 +40,10 @@ function ListeCommande(props) {
   achat.map((item) => {
     return (xx = parseFloat(xx) + item.prix);
   });
-  const hs = useHistory();
+
   //validate
   const valide = () => {
     if (validate()) {
-      hs.push("/Paiement");
     }
   };
   const colonne = [
@@ -106,7 +105,7 @@ function ListeCommande(props) {
                 style={{ marginLeft: "5%" }}
                 onClick={() => valide()}
               >
-                Acheter
+                <Link to="/Paiement">Acheter</Link>
               </Button>
             </Index.Form>
           </Grid>

@@ -62,7 +62,13 @@ function ItemMenu() {
             </IconButton>
           )}
 
-          <Typography variant="subtitle1" style={{ marginTop: "5%" }}>
+          <Typography
+            variant="subtitle1"
+            style={{ marginTop: "5%" }}
+            initial={{ y: -250 }}
+            animate={{ y: 0 }}
+            transition={{ type: "spring", styffness: 5 }}
+          >
             Activiter
           </Typography>
         </Grid>

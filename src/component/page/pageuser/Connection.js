@@ -19,7 +19,7 @@ const varaible = {
 function Connection() {
   const dispatch = useDispatch();
   const classes = useStyles();
-  const hstoiry = useHistory();
+  // const hstoiry = useHistory();
 
   const validate = () => {
     let tbs = {};
@@ -35,7 +35,7 @@ function Connection() {
   const logine = () => {
     if (validate()) {
       dispatch(ActionUser());
-      hstoiry.push("/acceuille");
+      // hstoiry.push("/acceuille");
     }
   };
   return (
@@ -71,7 +71,7 @@ function Connection() {
               }}
               style={{ marginLeft: "2%" }}
             >
-              connection
+              <Link to="/acceuille">connection</Link>
             </Button>
             <Button
               color="secondary"
