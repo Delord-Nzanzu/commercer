@@ -21,6 +21,7 @@ import { useSelector, useDispatch } from "react-redux";
 import DownItem from "../../menu/drodownitem/DownItem";
 import DrownItemUser from "../../menu/drodownitem/DrownItemUser";
 import AfficheAcha from "../../redux/actionicons/AfficheAcha";
+import { motion } from "framer-motion";
 
 function ItemMenu() {
   const [opens, setOpens] = useState(false);
@@ -53,24 +54,28 @@ function ItemMenu() {
           {etat === false ? (
             ""
           ) : (
-            <IconButton
-              onClick={() => {
-                ActiveDrawer();
-              }}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 5 }}
             >
-              <Menu style={{ color: "white" }} />
-            </IconButton>
+              <IconButton
+                onClick={() => {
+                  ActiveDrawer();
+                }}
+              >
+                <Menu style={{ color: "white" }} />
+              </IconButton>
+            </motion.div>
           )}
-
-          <Typography
-            variant="subtitle1"
-            style={{ marginTop: "5%" }}
+          <motion.div
             initial={{ y: -250 }}
             animate={{ y: 0 }}
-            transition={{ type: "spring", styffness: 5 }}
+            transition={{ type: "spring", stiffness: 50 }}
+            style={{ marginTop: "5%" }}
           >
-            Activiter
-          </Typography>
+            <Typography variant="subtitle1">Activiter</Typography>
+          </motion.div>
         </Grid>
       </Grid>
       <Grid item xs={6}>
@@ -84,7 +89,12 @@ function ItemMenu() {
                   onClick={() => dispth2({ type: item.type })}
                 >
                   <ListItem>
-                    <Typography variant="subtitle2">{item.title}</Typography>
+                    <motion.div
+                      whileHover={{ scale: 1, color: "#79C951", originX: 0 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Typography variant="subtitle2">{item.title}</Typography>
+                    </motion.div>
                   </ListItem>
                 </Link>
               </List>

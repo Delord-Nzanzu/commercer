@@ -15,6 +15,7 @@ import TousComande from "./component/page/pageadmin/TousComande";
 import Categories from "./component/page/pageadmin/Categories";
 // import ItemCommande from "./component/menu/item/ItemCommande";
 import Paiement from "./component/page/pageweb/Paiement";
+import Profile from "./component/page/pageuser/Profile";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/commandes" component={TousComande} />
           <Route path="/paiement" component={Paiement} />
           <Route path="/categories" component={Categories} />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </Provider>
     </div>

@@ -11,7 +11,7 @@ const variable = {
   email: "",
 };
 
-function CreationCompte() {
+function ModificationCompte() {
   const valaidate = () => {
     let tb = {};
     tb.nom = values.nom ? "" : "complter le nom";
@@ -51,9 +51,7 @@ function CreationCompte() {
     <Container style={{ marginTop: "1%" }}>
       <Index.Form>
         <Paper elevation={0}>
-          <Typography variant="subtitle1">
-            CREER VOTRE COMPTE EN TOUTE SECURITER
-          </Typography>
+          <Typography variant="subtitle1">Modificatication</Typography>
           <Grid container direction="row">
             <Grid item xs={6} md={6}>
               <Index.Input
@@ -110,7 +108,7 @@ function CreationCompte() {
                   create();
                 }}
               >
-                Enregistrer
+                Modifier
               </Button>
               <Button
                 variant="outlined"
@@ -130,4 +128,4 @@ function CreationCompte() {
   );
 }
 
-export default CreationCompte;
+export default ModificationCompte;

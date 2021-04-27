@@ -7,6 +7,7 @@ import { DataUser } from "../../datas/Data";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { Grid } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 function DownItemUser(props) {
   const { open, setOpen, anchorRef } = props;
@@ -53,8 +54,10 @@ function DownItemUser(props) {
                   >
                     <Grid container>
                       {item.icons}
-
-                      <MenuItem>{item.title}</MenuItem>
+                      <Link to={item.link}>
+                        {" "}
+                        <MenuItem>{item.title}</MenuItem>
+                      </Link>
                     </Grid>
                   </MenuList>
                 </ClickAwayListener>

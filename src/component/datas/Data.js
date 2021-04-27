@@ -8,6 +8,10 @@ import {
   SettingsPower,
   Today,
 } from "@material-ui/icons";
+import xa from "../image/xa.jpg";
+import xb from "../image/xb.jpg";
+import xc from "../image/xc.jpg";
+import xd from "../image/xd.jpg";
 
 export const DataMEnu = [
   { id: "1", title: "Acceuille", link: "/acceuille", type: "disparess" },
@@ -69,73 +73,84 @@ export const DataProduit = [
     type: "chemise",
     prix: 10,
     devise: "$",
+    image: xa,
   },
   {
     id: "2",
     type: "pantalon",
     prix: 15,
     devise: "$",
+    image: xb,
   },
   {
     id: "3",
     type: "culotte",
     prix: 5,
     devise: "$",
+    image: xc,
   },
   {
     id: "4",
     type: "souvettement",
     prix: 8,
     devise: "$",
+    image: xb,
   },
   {
     id: "5",
     type: "sinture",
     prix: 2,
     devise: "$",
+    image: xc,
   },
   {
     id: "6",
     type: "soulie",
     prix: 25,
     devise: "$",
+    image: xb,
   },
   {
     id: "7",
     type: "polo",
     prix: 5,
     devise: "$",
+    image: xa,
   },
   {
     id: "8",
     type: "singlin",
     prix: 4,
     devise: "$",
+    image: xc,
   },
   {
     id: "9",
     type: "singlin",
     prix: 4,
     devise: "$",
+    image: xd,
   },
   {
     id: "10",
     type: "singlin",
     prix: 4,
     devise: "$",
+    image: xc,
   },
   {
     id: "11",
     type: "singlin",
     prix: 4,
     devise: "$",
+    image: xd,
   },
 ];
 export const DataUser = [
   {
     id: "1",
     title: "Profil",
-    link: "/#",
+    link: "/profile",
     icons: <AccountCircle fontSize="small" color="primary" />,
   },
   {
