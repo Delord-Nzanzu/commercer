@@ -5,24 +5,37 @@ import { useDispatch } from "react-redux";
 import ActionAchat from "../../../redux/actionicons/ActionAchat";
 import ListeCommande from "../ListeCommande";
 import { useSelector } from "react-redux";
+import Connection from "../../pageuser/Connection";
 
 function ListAllData() {
   const [achat, setAchat] = useState([]);
   const achats = useDispatch();
   const afficahge = useSelector((state) => state.afficheachat);
+  const disp = useDispatch(); //permet de change l'etat avec type:"non de l'etat"
+  const useSele = useSelector((store) => store.etatachatlogine);
+  console.log(sessionStorage.getItem("tockenclient"));
 
   const addpanier = (item) => {
-    setAchat((ex) => [...ex, item]);
-    achats(ActionAchat());
+    if (sessionStorage.getItem("tockenclient").length === 0) {
+      disp({ type: "etatatrue" });
+      console.log("zero");
+    } else {
+      setAchat((ex) => [...ex, item]);
+      achats(ActionAchat());
+    }
   };
 
   return (
     <Grid container style={{ backgroundColor: "#F2F2F2" }}>
       {afficahge === false ? (
         <Container>
-          <List>
-            <ListeData addpanier={addpanier} />
-          </List>
+          {useSele === false ? (
+            <List>
+              <ListeData addpanier={addpanier} />
+            </List>
+          ) : (
+            <Connection />
+          )}
         </Container>
       ) : (
         <ListeCommande achat={achat} />

@@ -1,6 +1,6 @@
 import { Button, Grid, makeStyles, Paper, Typography } from "@material-ui/core";
 import { Index } from "../../etat/Index";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ActionUser from "../../redux/actionicons/ActionUser";
 import { useDispatch } from "react-redux";
 
@@ -18,7 +18,9 @@ const varaible = {
 
 function Connection() {
   const dispatch = useDispatch();
+  const disp = useDispatch();
   const classes = useStyles();
+
   // const hstoiry = useHistory();
 
   const validate = () => {
@@ -35,11 +37,17 @@ function Connection() {
   const logine = () => {
     if (validate()) {
       dispatch(ActionUser());
+      disp({ type: "etatachatlogine" });
       // hstoiry.push("/acceuille");
+      sessionStorage.setItem("tockenclient", values.email);
     }
   };
   return (
-    <Grid container justify="center" style={{ marginTop: "2%" }}>
+    <Grid
+      container
+      justify="center"
+      style={{ marginTop: "2%", marginBottom: "2%" }}
+    >
       <Index.Form>
         <Paper elevation={0} className={classes.paper}>
           <Typography variant="subtitle1">Logine</Typography>

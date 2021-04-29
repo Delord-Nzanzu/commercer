@@ -8,9 +8,12 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 function DownItemUser(props) {
   const { open, setOpen, anchorRef } = props;
+  const disp = useDispatch();
+  const dispItemuser = useDispatch();
 
   const handleClose = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
@@ -54,7 +57,14 @@ function DownItemUser(props) {
                   >
                     <Grid container>
                       {item.icons}
-                      <Link to={item.link}>
+                      <Link
+                        to={item.link}
+                        onClick={() => {
+                          sessionStorage.setItem("tockenclient", "");
+                          disp({ type: "etatachatlogine" });
+                          dispItemuser({ type: "logineiconesfalse" });
+                        }}
+                      >
                         {" "}
                         <MenuItem>{item.title}</MenuItem>
                       </Link>

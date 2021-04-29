@@ -34,6 +34,7 @@ function ItemMenu() {
   const anchorRef2 = React.useRef(null);
   const dispth = useDispatch();
   const dispth2 = useDispatch();
+  const disp = useDispatch();
 
   const handleToggle = () => {
     setOpen2((prevOpen) => !prevOpen);
@@ -86,7 +87,10 @@ function ItemMenu() {
                 <Link
                   to={item.link}
                   style={{ color: "white" }}
-                  onClick={() => dispth2({ type: item.type })}
+                  onClick={() => {
+                    dispth2({ type: item.type });
+                    disp({ type: "etatachatlogine" });
+                  }}
                 >
                   <ListItem>
                     <motion.div

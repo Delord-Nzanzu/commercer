@@ -1,8 +1,11 @@
+import { StarRate } from "@material-ui/icons";
+
 const initialisation = {
   etatadmin: false,
   logineicones: false,
   achat: 0,
   afficheachat: false,
+  etatachatlogine: true,
 };
 
 function ActionIconsAdmin(state = initialisation, action) {
@@ -16,6 +19,11 @@ function ActionIconsAdmin(state = initialisation, action) {
       return {
         ...state,
         logineicones: (state.logineicones = true),
+      };
+    case "logineiconesfalse":
+      return {
+        ...state,
+        logineicones: (state.logineicones = false),
       };
     case "achat":
       return {
@@ -41,6 +49,16 @@ function ActionIconsAdmin(state = initialisation, action) {
       return {
         ...state,
         etatadmin: (state.etatadmin = false),
+      };
+    case "etatachatlogine":
+      return {
+        ...state,
+        etatachatlogine: (state.etatachatlogine = false),
+      };
+    case "etatatrue":
+      return {
+        ...state,
+        etatachatlogine: (state.etatachatlogine = true),
       };
     default:
       return state;

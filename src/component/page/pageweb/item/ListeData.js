@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 function ListeData(props) {
   const classes = useStyles();
+
   return (
     <Grid container style={{ backgroundColor: "#ffffff" }}>
       <ListItem>
@@ -75,7 +76,9 @@ function ListeData(props) {
                     <Button
                       variant="outlined"
                       size="small"
-                      onClick={() => props.addpanier(item)}
+                      onClick={() => {
+                        props.addpanier(item);
+                      }}
                     >
                       <AddShoppingCart />
                     </Button>
