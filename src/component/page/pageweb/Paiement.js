@@ -10,6 +10,7 @@ import { Index } from "../../etat/Index";
 import airtel from "../../image/airtel.jpg";
 import mpsa from "../../image/mpsa.png";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({}));
 const variable = {
@@ -19,6 +20,7 @@ function Paiement() {
   const [typeselectionne, setTypeselectionne] = useState("");
   const classes = useStyles();
   const selePaiement = useSelector((store) => store.paiement); //on pointe sur le varibale du state
+  console.log(selePaiement);
   const seldisp = useDispatch();
   const dispZeroCompteur = useDispatch();
 
@@ -97,7 +99,7 @@ function Paiement() {
                 dispZeroCompteur({ type: "achazero" });
               }}
             >
-              Valider la Trasation
+              <Link to="/remerciement"> Valider la Trasation</Link>
             </Button>
           </div>
         )}

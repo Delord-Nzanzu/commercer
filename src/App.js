@@ -13,7 +13,7 @@ import Commande from "./component/page/pageadmin/Commande";
 import CommandeDay from "./component/page/pageadmin/CommandeDay";
 import TousComande from "./component/page/pageadmin/TousComande";
 import Categories from "./component/page/pageadmin/Categories";
-// import ItemCommande from "./component/menu/item/ItemCommande";
+import RemerciementPaiement from "./component/page/pageweb/RemerciementPaiement";
 import Paiement from "./component/page/pageweb/Paiement";
 import Profile from "./component/page/pageuser/Profile";
 
@@ -35,6 +35,7 @@ function App() {
           <Route path="/paiement" component={Paiement} />
           <Route path="/categories" component={Categories} />
           <Route path="/profile" component={Profile} />
+          <Route path="/remerciement" component={RemerciementPaiement} />
         </Switch>
       </Provider>
     </div>

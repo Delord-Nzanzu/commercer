@@ -15,7 +15,7 @@ function ListAllData() {
   const useSele = useSelector((store) => store.etatachatlogine); // on pointe sur le variable du state
 
   const addpanier = (item) => {
-    if (sessionStorage.getItem("tockenclient").length === 0) {
+    if (sessionStorage.getItem("tockenclient") === null) {
       disp({ type: "etatatrue" });
     } else {
       setAchat((ex) => [...ex, item]);

@@ -67,8 +67,10 @@ function ListeData(props) {
                         component="p"
                       >
                         {" "}
-                        {item.prix}
-                        {item.devise}
+                        <span style={{ color: "red", fontSize: "20px" }}>
+                          {item.prix}
+                        </span>
+                        <span style={{ fontSize: "20px" }}>{item.devise}</span>
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -80,7 +82,7 @@ function ListeData(props) {
                         props.addpanier(item);
                       }}
                     >
-                      <AddShoppingCart />
+                      <AddShoppingCart color="primary" />
                     </Button>
                   </CardActions>
                 </Card>
