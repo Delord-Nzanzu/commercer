@@ -14,8 +14,11 @@ function ListAllData() {
   const disp = useDispatch(); //permet de change l'etat avec type:"non de l'etat"
   const useSele = useSelector((store) => store.etatachatlogine); // on pointe sur le variable du state
 
+  const loginefalse = useSelector((storie) => storie.logineicones);
+  console.log(loginefalse);
+
   const addpanier = (item) => {
-    if (sessionStorage.getItem("tockenclient") === null) {
+    if (loginefalse === false) {
       disp({ type: "etatatrue" });
     } else {
       setAchat((ex) => [...ex, item]);

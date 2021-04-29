@@ -14,6 +14,8 @@ function DownItemUser(props) {
   const { open, setOpen, anchorRef } = props;
   const disp = useDispatch();
   const dispItemuser = useDispatch();
+  const dispoo = useDispatch();
+  const dispZeroCompteur = useDispatch();
 
   const handleClose = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
@@ -60,9 +62,11 @@ function DownItemUser(props) {
                       <Link
                         to={item.link}
                         onClick={() => {
-                          sessionStorage.setItem("tockenclient", "");
+                          dispoo({ type: "logineiconesfalse" });
+                          //sessionStorage.setItem("tockenclient", null);
                           disp({ type: "etatachatlogine" });
                           dispItemuser({ type: "logineiconesfalse" });
+                          dispZeroCompteur({ type: "achazero" });
                         }}
                       >
                         {" "}

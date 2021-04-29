@@ -72,7 +72,7 @@ function Paiement() {
 
       <Grid item xs={12} style={{ marginLeft: "5%", marginTop: "5%" }}>
         {selePaiement === false ? (
-          <div>ok</div>
+          ""
         ) : (
           <div>
             {" "}
