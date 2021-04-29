@@ -38,7 +38,6 @@ function Connection() {
     if (validate()) {
       dispatch(ActionUser());
       disp({ type: "etatachatlogine" });
-      // hstoiry.push("/acceuille");
       sessionStorage.setItem("tockenclient", values.email);
     }
   };

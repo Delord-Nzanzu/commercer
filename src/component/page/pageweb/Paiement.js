@@ -5,16 +5,23 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import { Index } from "../../etat/Index";
 import airtel from "../../image/airtel.jpg";
 import mpsa from "../../image/mpsa.png";
+import { useSelector, useDispatch } from "react-redux";
+
 const useStyles = makeStyles((theme) => ({}));
 const variable = {
   address: "",
 };
 function Paiement() {
+  const [typeselectionne, setTypeselectionne] = useState("");
   const classes = useStyles();
+  const selePaiement = useSelector((store) => store.paiement); //on pointe sur le varibale du state
+  const seldisp = useDispatch();
+  const dispZeroCompteur = useDispatch();
+
   const validate = () => {
     let tbs = {};
     tbs.address = values.address ? "" : "completer cette champs";
@@ -43,36 +50,57 @@ function Paiement() {
             src={airtel}
             alt="Airtel"
             style={{ width: "5%", marginLeft: "5%", marginBottom: "1%" }}
+            onClick={() => {
+              seldisp({ type: "paiementrue" });
+              setTypeselectionne("Airtel");
+            }}
           />
           <img
             src={mpsa}
             alt="Airtel"
             style={{ width: "5%", marginLeft: "5%", marginBottom: "1%" }}
+            onClick={() => {
+              seldisp({ type: "paiementrue" });
+              setTypeselectionne("Vodacom");
+            }}
           />
         </Grid>
+        <Divider />
       </Grid>
-      <Divider style={{ color: "red" }} />
-      <Grid item xs={12}>
-        <Index.Form>
-          <Index.Input
-            label="Addresse Complet"
-            name="address"
-            value={values.address}
-            onChange={onchange}
-            type=""
-            variant="outlined"
-            error={error.address}
-          />
-          <Button
-            variant="outlined"
-            size="small"
-            color="primary"
-            style={{ marginLeft: "5%" }}
-            onClick={() => valide()}
-          >
-            Valider la Trasation
-          </Button>
-        </Index.Form>
+
+      <Grid item xs={12} style={{ marginLeft: "5%", marginTop: "5%" }}>
+        {selePaiement === false ? (
+          <div>ok</div>
+        ) : (
+          <div>
+            {" "}
+            <Index.Form>
+              <Typography variant="subtitle1" style={{ marginBottom: "2%" }}>
+                Entre le mot de passe pour le compte {typeselectionne}
+              </Typography>
+              <Index.Input
+                label="Password"
+                name="address"
+                value={values.address}
+                onChange={onchange}
+                type="password"
+                variant="outlined"
+                error={error.address}
+              />
+            </Index.Form>
+            <Button
+              variant="outlined"
+              size="small"
+              color="primary"
+              onClick={() => {
+                valide();
+                dispZeroCompteur({ type: "achazero" });
+              }}
+            >
+              Valider la Trasation
+            </Button>
+          </div>
+        )}
       </Grid>
     </Grid>
   );

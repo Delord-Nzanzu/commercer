@@ -12,13 +12,11 @@ function ListAllData() {
   const achats = useDispatch();
   const afficahge = useSelector((state) => state.afficheachat);
   const disp = useDispatch(); //permet de change l'etat avec type:"non de l'etat"
-  const useSele = useSelector((store) => store.etatachatlogine);
-  console.log(sessionStorage.getItem("tockenclient"));
+  const useSele = useSelector((store) => store.etatachatlogine); // on pointe sur le variable du state
 
   const addpanier = (item) => {
     if (sessionStorage.getItem("tockenclient").length === 0) {
       disp({ type: "etatatrue" });
-      console.log("zero");
     } else {
       setAchat((ex) => [...ex, item]);
       achats(ActionAchat());

@@ -23,7 +23,7 @@ function App() {
       <Provider store={Store}>
         <Menu />
         <Switch>
-          <Route exact path="/acceuille" component={Home} />
+          <Route exact={true} path="/acceuille" component={Home} />
           <Route path="/connection" component={Connection} />
           <Route path="/creationcompte" component={CreationCompte} />
           <Route path="/adminehome" component={Homes} />
