@@ -25,7 +25,7 @@ function Home() {
               marginLeft: "5%",
             }}
           >
-            Maison d'habillement Exostie
+            Maison d'habillement Exostie yes
           </Typography>
         </Grid>
       </Box>
