@@ -48,83 +48,90 @@ function CreationCompte() {
     }
   };
   return (
-    <Container style={{ marginTop: "1%" }}>
+    <Container
+      style={{
+        marginTop: "1%",
+        backgroundColor: "#F2F2F2",
+        width: "100vw",
+        paddingTop: "2%",
+        paddingLeft: "5%",
+        paddingBottom: "10vw",
+      }}
+    >
+      <Typography variant="subtitle1">
+        CREER VOTRE COMPTE EN TOUTE SECURITER
+      </Typography>
       <Index.Form>
-        <Paper elevation={0}>
-          <Typography variant="subtitle1">
-            CREER VOTRE COMPTE EN TOUTE SECURITER
-          </Typography>
-          <Grid container direction="row">
-            <Grid item xs={6} md={6}>
-              <Index.Input
-                label="Nom"
-                name="nom"
-                value={values.nom}
-                onChange={onchange}
-                error={error.nom}
-                type=""
-                variant="standard"
-              />
-              <Index.Input
-                label="Prenom"
-                name="prenom"
-                value={values.prenom}
-                onChange={onchange}
-                error={error.prenom}
-                type=""
-                variant="standard"
-              />
-              <Index.Input
-                label="Telephone"
-                name="telephone"
-                value={values.telephone}
-                onChange={onchange}
-                error={error.telephone}
-                type=""
-                variant="standard"
-              />
-            </Grid>
-            <Grid item xs={6} md={6}>
-              <Index.Input
-                label="Password"
-                name="password"
-                value={values.password}
-                onChange={onchange}
-                error={error.password}
-                type="password"
-                variant="standard"
-              />
-              <Index.Input
-                label="Email"
-                name="email"
-                value={values.email}
-                onChange={onchange}
-                error={error.email}
-                type=""
-                variant="standard"
-              />
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={() => {
-                  create();
-                }}
-              >
-                Enregistrer
-              </Button>
-              <Button
-                variant="outlined"
-                color="secondary"
-                onClick={() => {
-                  videlechamps();
-                }}
-                style={{ marginLeft: "1%" }}
-              >
-                Annuler
-              </Button>
-            </Grid>
+        <Grid container direction="row">
+          <Grid item xs={6} md={6}>
+            <Index.Input
+              label="Nom"
+              name="nom"
+              value={values.nom}
+              onChange={onchange}
+              error={error.nom}
+              type=""
+              variant="standard"
+            />
+            <Index.Input
+              label="Prenom"
+              name="prenom"
+              value={values.prenom}
+              onChange={onchange}
+              error={error.prenom}
+              type=""
+              variant="standard"
+            />
+            <Index.Input
+              label="Telephone"
+              name="telephone"
+              value={values.telephone}
+              onChange={onchange}
+              error={error.telephone}
+              type=""
+              variant="standard"
+            />
           </Grid>
-        </Paper>
+          <Grid item xs={6} md={6}>
+            <Index.Input
+              label="Password"
+              name="password"
+              value={values.password}
+              onChange={onchange}
+              error={error.password}
+              type="password"
+              variant="standard"
+            />
+            <Index.Input
+              label="Email"
+              name="email"
+              value={values.email}
+              onChange={onchange}
+              error={error.email}
+              type=""
+              variant="standard"
+            />
+            <Button
+              variant="outlined"
+              color="primary"
+              onClick={() => {
+                create();
+              }}
+            >
+              Enregistrer
+            </Button>
+            <Button
+              variant="outlined"
+              color="secondary"
+              onClick={() => {
+                videlechamps();
+              }}
+              style={{ marginLeft: "1%" }}
+            >
+              Annuler
+            </Button>
+          </Grid>
+        </Grid>
       </Index.Form>
     </Container>
   );

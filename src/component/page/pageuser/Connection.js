@@ -1,4 +1,11 @@
-import { Button, Grid, makeStyles, Paper, Typography } from "@material-ui/core";
+import {
+  Button,
+  Divider,
+  Grid,
+  makeStyles,
+  Paper,
+  Typography,
+} from "@material-ui/core";
 import { Index } from "../../etat/Index";
 import { Link } from "react-router-dom";
 import ActionUser from "../../redux/actionicons/ActionUser";
@@ -45,12 +52,18 @@ function Connection() {
     <Grid
       container
       justify="center"
-      style={{ marginTop: "2%", marginBottom: "2%" }}
+      style={{ marginTop: "2%", marginBottom: "2%", height: "25vw" }}
     >
       <Index.Form>
         <Paper elevation={0} className={classes.paper}>
-          <Typography variant="subtitle1">Logine</Typography>
-          <Grid item xs={12}>
+          <Typography
+            variant="subtitle1"
+            style={{ marginLeft: "2%", fontSize: "20px" }}
+          >
+            Logine
+          </Typography>
+          <Divider />
+          <Grid item xs={12} style={{ marginTop: "2%", paddingBottom: "5%" }}>
             <Index.Input
               label="Email"
               name="email"
