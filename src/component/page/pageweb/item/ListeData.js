@@ -29,78 +29,88 @@ function ListeData(props) {
   const classes = useStyles();
 
   return (
-    <Grid container style={{ backgroundColor: "#ffffff" }}>
-      <ListItem>
-        <Grid item xs={12}>
-          {/*   <GridList className={classes.gridList} cols={2.5}>*/}
-          <motion.div
-            initial={{ x: "-100vw" }}
-            animate={{ x: 0 }}
-            transition={{ type: "spring", stiffness: 50 }}
-          >
-            <Grid container direction="row" justify="space-around">
-              {DataProduit.map((item, i) => {
-                return (
-                  <Card
-                    key={i.toString()}
-                    style={{
-                      marginBottom: "1%",
-                      marginTop: "1%",
-                      maxWidth: 345,
-                    }}
-                  >
-                    <CardActionArea>
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1, duration: 5, stiffness: 2 }}
-                      >
-                        <CardMedia
-                          component="img"
-                          // alt={item.type}
-                          height="120"
-                          image={item.image}
-                          title={item.type}
-                        />
-                      </motion.div>
-
-                      <CardContent>
-                        <Typography variant="h5">{item.type}</Typography>
-                        <Typography
-                          variant="body2"
-                          color="textSecondary"
-                          component="p"
+    <GridList
+      cellHeight={300}
+      cols={1}
+      style={{
+        width: "100%",
+        backgroundColor: "#FFFFFF",
+        marginBottom: "10vw",
+      }}
+    >
+      <Grid container>
+        <ListItem>
+          <Grid item xs={12}>
+            {/*   <GridList className={classes.gridList} cols={2.5}>*/}
+            <motion.div
+              initial={{ x: "-100vw" }}
+              animate={{ x: 0 }}
+              transition={{ type: "spring", stiffness: 50 }}
+            >
+              <Grid container direction="row" justify="space-around">
+                {DataProduit.map((item, i) => {
+                  return (
+                    <Card
+                      key={i.toString()}
+                      style={{
+                        marginBottom: "1%",
+                        marginTop: "1%",
+                        maxWidth: 345,
+                      }}
+                    >
+                      <CardActionArea>
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: 1, duration: 5, stiffness: 2 }}
                         >
-                          {" "}
-                          <span style={{ color: "red", fontSize: "20px" }}>
-                            {item.prix}
-                          </span>
-                          <span style={{ fontSize: "20px" }}>
-                            {item.devise}
-                          </span>
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                      <Button
-                        variant="outlined"
-                        size="small"
-                        onClick={() => {
-                          props.addpanier(item);
-                        }}
-                      >
-                        <AddShoppingCart color="primary" />
-                      </Button>
-                    </CardActions>
-                  </Card>
-                );
-              })}
-            </Grid>
-          </motion.div>
-          {/* </GridList>*/}
-        </Grid>
-      </ListItem>
-    </Grid>
+                          <CardMedia
+                            component="img"
+                            // alt={item.type}
+                            height="120"
+                            image={item.image}
+                            title={item.type}
+                          />
+                        </motion.div>
+
+                        <CardContent>
+                          <Typography variant="h5">{item.type}</Typography>
+                          <Typography
+                            variant="body2"
+                            color="textSecondary"
+                            component="p"
+                          >
+                            {" "}
+                            <span style={{ color: "red", fontSize: "20px" }}>
+                              {item.prix}
+                            </span>
+                            <span style={{ fontSize: "20px" }}>
+                              {item.devise}
+                            </span>
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                      <CardActions>
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          onClick={() => {
+                            props.addpanier(item);
+                          }}
+                        >
+                          <AddShoppingCart color="primary" />
+                        </Button>
+                      </CardActions>
+                    </Card>
+                  );
+                })}
+              </Grid>
+            </motion.div>
+            {/* </GridList>*/}
+          </Grid>
+        </ListItem>
+      </Grid>
+    </GridList>
   );
 }
 

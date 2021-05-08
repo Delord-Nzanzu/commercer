@@ -8,7 +8,6 @@ function Home() {
       <Box
         style={{
           backgroundImage: `url(${xa})`,
-
           justifyContent: "center",
           alignItems: "center",
         }}
