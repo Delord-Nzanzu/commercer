@@ -16,6 +16,7 @@ import Categories from "./component/page/pageadmin/Categories";
 import RemerciementPaiement from "./component/page/pageweb/RemerciementPaiement";
 import Paiement from "./component/page/pageweb/Paiement";
 import Profile from "./component/page/pageuser/Profile";
+import Footer from "./component/page/pageweb/Footer";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route path="/remerciement" component={RemerciementPaiement} />
         </Switch>
+        <Footer />
       </Provider>
     </div>
   );

@@ -145,6 +145,13 @@ export const DataProduit = [
     devise: "$",
     image: xd,
   },
+  {
+    id: "12",
+    type: "lacoste",
+    prix: 10,
+    devise: "$",
+    image: xd,
+  },
 ];
 export const DataUser = [
   {
