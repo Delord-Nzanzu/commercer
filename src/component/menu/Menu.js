@@ -5,7 +5,7 @@ import ItemMenu from "./item/ItemMenu";
 function Menu() {
   return (
     <AppBar
-      position="absolute"
+      position="static"
       style={{ backgroundColor: "#608585" }}
       elevation={0}
     >

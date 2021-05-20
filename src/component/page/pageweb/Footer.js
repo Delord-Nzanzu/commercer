@@ -8,7 +8,7 @@ function Footer() {
       justify="center"
       style={{
         backgroundColor: "#528686",
-        height: "10vw",
+        height: "20vw",
         width: "100%",
         paddingLeft: "5%",
         color: "white",

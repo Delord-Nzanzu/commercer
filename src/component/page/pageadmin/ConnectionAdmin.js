@@ -18,9 +18,8 @@ function ConnectionAdmin() {
     setError({ ...tbs });
     return Object.values(tbs).every((x) => x === "");
   };
-  const { values, onchange, error, setError, videlechamps } = Index.Etat(
-    varaible
-  );
+  const { values, onchange, error, setError, videlechamps } =
+    Index.Etat(varaible);
 
   const Logine = () => {
     if (validate()) {
@@ -28,7 +27,11 @@ function ConnectionAdmin() {
     }
   };
   return (
-    <Grid container justify="center" style={{ marginTop: "2%" }}>
+    <Grid
+      container
+      justify="center"
+      style={{ marginTop: "5%", marginBottom: "5%" }}
+    >
       <Index.Form>
         <Paper elevation={0}>
           <Grid item xs={12}>

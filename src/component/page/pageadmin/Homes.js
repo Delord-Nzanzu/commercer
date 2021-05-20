@@ -3,7 +3,7 @@ import React from "react";
 
 function Homes() {
   return (
-    <Grid container>
+    <Grid container style={{ marginTop: "5%" }}>
       <Grid item>
         <Typography variant="h1">home</Typography>
       </Grid>

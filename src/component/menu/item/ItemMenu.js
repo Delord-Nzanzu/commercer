@@ -86,7 +86,7 @@ function ItemMenu() {
               <List key={item.id}>
                 <Link
                   to={item.link}
-                  style={{ color: "white" }}
+                  style={{ color: "white", textDecoration: "none" }}
                   onClick={() => {
                     dispth2({ type: item.type });
                     disp({ type: "etatachatlogine" });
@@ -157,7 +157,10 @@ function ItemMenu() {
 
           <IconButton>
             <ExitToApp style={{ color: "white" }} fontSize="small" />
-            <Link to="/connection" style={{ color: "white" }}>
+            <Link
+              to="/connection"
+              style={{ color: "white", textDecoration: "none" }}
+            >
               <Typography variant="subtitle2" style={{ color: "white" }}>
                 connection
               </Typography>
