@@ -2,6 +2,7 @@ import { Box, Grid, Typography } from "@material-ui/core";
 import React from "react";
 import ListAllData from "./panie/ListAllData";
 import xa from "../../image/xa.jpg";
+import Carouseles from "../carouseles/Carouseles";
 function Home() {
   return (
     <Grid container direction="row-reverse" justify="center">
@@ -30,6 +31,9 @@ function Home() {
       </Box>
       <Grid item xs={12}>
         <ListAllData />
+      </Grid>
+      <Grid item xs={12}>
+        <Carouseles />
       </Grid>
     </Grid>
   );

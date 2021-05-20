@@ -68,6 +68,7 @@ function DownItemUser(props) {
                           dispItemuser({ type: "logineiconesfalse" });
                           dispZeroCompteur({ type: "achazero" });
                         }}
+                        style={{ textDecoration: "none" }}
                       >
                         {" "}
                         <MenuItem>{item.title}</MenuItem>

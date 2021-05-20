@@ -26,7 +26,7 @@ function ItemCommande() {
               <List key={item.id}>
                 <ListItem>
                   <ListItemIcon>{item.icons}</ListItemIcon>
-                  <Link to={item.link}>
+                  <Link to={item.link} style={{ textDecoration: "none" }}>
                     <ListItemText primary={item.title} />
                   </Link>
                 </ListItem>

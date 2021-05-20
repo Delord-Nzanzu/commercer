@@ -28,7 +28,10 @@ function ItemSideBarA(props) {
               <List key={item.id}>
                 <ListItem>
                   <ListItemIcon>{item.icons}</ListItemIcon>
-                  <Link to={item.lik} style={{ color: "white" }}>
+                  <Link
+                    to={item.lik}
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
                     <Typography variant="subtitle2">{item.title}</Typography>
                   </Link>
                 </ListItem>

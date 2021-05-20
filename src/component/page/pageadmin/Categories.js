@@ -99,6 +99,7 @@ function Categories() {
             backgroundColor: "#FFFFFF",
             marginBottom: "1%",
             marginTop: "1%",
+            padding: "1%",
           }}
         >
           <Typography
@@ -128,7 +129,7 @@ function Categories() {
           <MaterialTable
             data={data}
             columns={column}
-            style={{ padding: "2%" }}
+            // style={{ padding: "10%" }}
           />
           <MDialogue title="Modifier" open={open} setOpen={setOpen} taille="lg">
             <UpdateCategories categories={datas} />

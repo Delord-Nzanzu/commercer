@@ -22,11 +22,11 @@ function UpdateCategories(props) {
   const update = () => {
     if (valaidate()) {
       try {
-        const data = {
-          prod: values.designation,
+        const datas = {
+          data: values.designation,
         };
 
-        Api.post(`category/update/${values.id}`, data)
+        Api.post(`category/update/${values.id}`, datas)
           .then((reslt) => {
             console.log(reslt);
           })
