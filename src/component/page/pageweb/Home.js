@@ -9,10 +9,11 @@ function Home() {
       <Box
         style={{
           backgroundImage: `url(${xa})`,
+          // backgroundColor: "#1E5E9D",
           justifyContent: "center",
           alignItems: "center",
         }}
-        height="20vw"
+        height="30vw"
         width="100vw"
       >
         <Grid item xs={12}>

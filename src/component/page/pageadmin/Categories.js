@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import { Index } from "../../etat/Index";
 import Api from "../../axios/Api";
 import MaterialTable from "material-table";
-import { BorderColor, Delete } from "@material-ui/icons";
+import { BorderColor } from "@material-ui/icons";
 import MDialogue from "../../menu/dialog/MDialogue";
 import UpdateCategories from "./UpdateCategories";
 

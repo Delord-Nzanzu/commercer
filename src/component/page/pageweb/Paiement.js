@@ -2,7 +2,7 @@ import {
   Button,
   Divider,
   Grid,
-  makeStyles,
+  // makeStyles,
   Typography,
 } from "@material-ui/core";
 import React, { useState } from "react";
@@ -12,13 +12,13 @@ import mpsa from "../../image/mpsa.png";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({}));
+// const useStyles = makeStyles((theme) => ({}));
 const variable = {
   address: "",
 };
 function Paiement() {
   const [typeselectionne, setTypeselectionne] = useState("");
-  const classes = useStyles();
+  // const classes = useStyles();
   const selePaiement = useSelector((store) => store.paiement); //on pointe sur le varibale du state
   console.log(selePaiement);
   const seldisp = useDispatch();
@@ -98,8 +98,12 @@ function Paiement() {
                 valide();
                 dispZeroCompteur({ type: "achazero" });
               }}
+              style={{ marginBottom: "2%" }}
             >
-              <Link to="/remerciement"> Valider la Trasation</Link>
+              <Link to="/remerciement" style={{ textDecoration: "none" }}>
+                {" "}
+                Valider la Trasation
+              </Link>
             </Button>
           </div>
         )}

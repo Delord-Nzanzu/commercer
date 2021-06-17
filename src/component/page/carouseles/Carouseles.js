@@ -6,7 +6,7 @@ import {
   Grid,
   Typography,
 } from "@material-ui/core";
-import { NextWeek, SkipNext, SkipPrevious } from "@material-ui/icons";
+import { SkipNext, SkipPrevious } from "@material-ui/icons";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { DataProduit } from "../../datas/Data";
@@ -18,20 +18,34 @@ function Carouseles() {
       justify="center"
       style={{
         marginBottom: "2%",
-        paddingTop: "2%",
+        // paddingTop: "2%",
         backgroundColor: "#F2F2F2",
       }}
     >
       <Container
         style={{
           backgroundColor: "#FFFFFF",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingTop: "2%",
+          // justifyContent: "center",
+          // alignItems: "center",
+          // paddingTop: "1%",
           marginBottom: "2%",
           // paddingLeft: "25%",
         }}
       >
+        <Typography
+          variant="body1"
+          component="div"
+          style={{
+            backgroundColor: "#3A8787",
+            marginBottom: "2%",
+            color: "white",
+            height: "5vw",
+            alignItems: "center",
+            fontSize: "50px",
+          }}
+        >
+          Publiciter
+        </Typography>
         <Carousel
           fullHeightHover={false}
           NextIcon={<SkipNext />}

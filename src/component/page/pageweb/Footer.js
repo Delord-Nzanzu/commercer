@@ -1,4 +1,4 @@
-import { Divider, Grid, Typography } from "@material-ui/core";
+import { Divider, Grid } from "@material-ui/core";
 import React from "react";
 
 function Footer() {

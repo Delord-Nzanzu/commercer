@@ -1,4 +1,4 @@
-import { StarRate } from "@material-ui/icons";
+// import { StarRate } from "@material-ui/icons";
 
 const initialisation = {
   etatadmin: false,

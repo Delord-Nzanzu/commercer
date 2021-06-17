@@ -5,6 +5,7 @@ import MaterialTable from "material-table";
 import Api from "../../axios/Api";
 
 function Produit() {
+  //cette entite permet d'enregistre de nouveau produit dans le systeme
   const [taille, setTaille] = useState([]);
   const [data, setData] = useState([]);
   const [, setDidMound] = useState(false);
@@ -55,9 +56,8 @@ function Produit() {
     setError({ ...tbs });
     return Object.values(tbs).every((x) => x === "");
   };
-  const { values, onchange, error, setError, videlechamps } = Index.Etat(
-    variable
-  );
+  const { values, onchange, error, setError, videlechamps } =
+    Index.Etat(variable);
 
   const Save = () => {
     if (validate()) {
@@ -177,14 +177,21 @@ function Produit() {
                 error={error.taille}
                 item={taille}
               />
-              <Button variant="outlined" color="primary" size="small">
+              <Button
+                variant="outlined"
+                color="primary"
+                size="small"
+                onClick={() => Save()}
+                style={{ textDecoration: "none" }}
+              >
                 Enregistrer
               </Button>
               <Button
                 variant="outlined"
                 color="secondary"
                 size="small"
-                style={{ marginLeft: "2%" }}
+                style={{ marginLeft: "2%", textDecoration: "none" }}
+                onClick={() => videlechamps()}
               >
                 Annuler
               </Button>

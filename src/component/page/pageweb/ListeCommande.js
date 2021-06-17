@@ -105,7 +105,9 @@ function ListeCommande(props) {
                 style={{ marginLeft: "5%" }}
                 onClick={() => valide()}
               >
-                <Link to="/Paiement">Acheter</Link>
+                <Link to="/Paiement" style={{ textDecoration: "none" }}>
+                  Acheter
+                </Link>
               </Button>
             </Index.Form>
           </Grid>

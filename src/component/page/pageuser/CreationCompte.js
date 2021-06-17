@@ -1,4 +1,4 @@
-import { Button, Container, Grid, Paper, Typography } from "@material-ui/core";
+import { Button, Container, Grid, Typography } from "@material-ui/core";
 import React from "react";
 import { Index } from "../../etat/Index";
 import Api from "../../axios/Api";
@@ -24,9 +24,8 @@ function CreationCompte() {
     return Object.values(tb).every((x) => x === "");
   };
 
-  const { values, onchange, error, setError, videlechamps } = Index.Etat(
-    variable
-  );
+  const { values, onchange, error, setError, videlechamps } =
+    Index.Etat(variable);
   const create = () => {
     if (valaidate()) {
       try {
