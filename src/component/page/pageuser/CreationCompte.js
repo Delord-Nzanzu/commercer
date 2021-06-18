@@ -2,6 +2,7 @@ import { Button, Container, Grid, Typography } from "@material-ui/core";
 import React from "react";
 import { Index } from "../../etat/Index";
 import Api from "../../axios/Api";
+import { Link } from "react-router-dom";
 
 const variable = {
   nom: "",
@@ -55,11 +56,10 @@ function CreationCompte() {
         paddingTop: "2%",
         paddingLeft: "5%",
         paddingBottom: "10vw",
+        marginBottom: "2%",
       }}
     >
-      <Typography variant="subtitle1">
-        CREER VOTRE COMPTE EN TOUTE SECURITER
-      </Typography>
+      <Typography variant="subtitle1">COMPTE</Typography>
       <Index.Form>
         <Grid container direction="row">
           <Grid item xs={6} md={6}>
@@ -117,7 +117,9 @@ function CreationCompte() {
                 create();
               }}
             >
-              Enregistrer
+              <Link to="/connection" style={{ textDecoration: "none" }}>
+                Enregistrer
+              </Link>
             </Button>
             <Button
               variant="outlined"

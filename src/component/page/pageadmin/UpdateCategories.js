@@ -11,7 +11,7 @@ function UpdateCategories(props) {
     categorie: categ.designation,
   };
   const { values, onchange, error, setError } = Index.Etat(variable);
-
+  console.log("ok==>" + values.categorie);
   const valaidate = () => {
     let tabs = {};
     tabs.categorie = values.categorie ? "" : "completer";
@@ -23,7 +23,8 @@ function UpdateCategories(props) {
     if (valaidate()) {
       try {
         const datas = {
-          data: values.designation,
+          designation: values.categorie,
+          active: 1,
         };
 
         Api.post(`category/update/${values.id}`, datas)
@@ -57,7 +58,7 @@ function UpdateCategories(props) {
             style={{ marginBottom: "2%", marginLeft: "1%" }}
             onClick={() => update()}
           >
-            Update
+            Updates
           </Button>
         </Container>
       </Grid>

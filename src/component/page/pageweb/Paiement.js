@@ -9,8 +9,10 @@ import React, { useState } from "react";
 import { Index } from "../../etat/Index";
 import airtel from "../../image/airtel.jpg";
 import mpsa from "../../image/mpsa.png";
+import paypal from "../../image/paypalok.png";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import Paypal from "../../paypal/Paypal";
 
 // const useStyles = makeStyles((theme) => ({}));
 const variable = {
@@ -18,6 +20,7 @@ const variable = {
 };
 function Paiement() {
   const [typeselectionne, setTypeselectionne] = useState("");
+  // const [checkout, setCheckOut]=useState(false)
   // const classes = useStyles();
   const selePaiement = useSelector((store) => store.paiement); //on pointe sur le varibale du state
   console.log(selePaiement);
@@ -66,6 +69,15 @@ function Paiement() {
               setTypeselectionne("Vodacom");
             }}
           />
+          <img
+            src={paypal}
+            alt="Paypal"
+            style={{ width: "5%", marginLeft: "5%", marginBottom: "1%" }}
+            onClick={() => {
+              seldisp({ type: "paiementrue" });
+              setTypeselectionne("Paypal");
+            }}
+          />
         </Grid>
         <Divider />
       </Grid>
@@ -80,15 +92,20 @@ function Paiement() {
               <Typography variant="subtitle1" style={{ marginBottom: "2%" }}>
                 Entre le mot de passe pour le compte {typeselectionne}
               </Typography>
-              <Index.Input
-                label="Password"
-                name="address"
-                value={values.address}
-                onChange={onchange}
-                type="password"
-                variant="outlined"
-                error={error.address}
-              />
+
+              {typeselectionne === "Paypal" ? (
+                <Paypal />
+              ) : (
+                <Index.Input
+                  label="Password"
+                  name="address"
+                  value={values.address}
+                  onChange={onchange}
+                  type="password"
+                  variant="outlined"
+                  error={error.address}
+                />
+              )}
             </Index.Form>
             <Button
               variant="outlined"

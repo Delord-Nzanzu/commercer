@@ -37,9 +37,8 @@ function Connection() {
     setError({ ...tbs });
     return Object.values(tbs).every((x) => x === "");
   };
-  const { values, onchange, error, setError, videlechamps } = Index.Etat(
-    varaible
-  );
+  const { values, onchange, error, setError, videlechamps } =
+    Index.Etat(varaible);
 
   const logine = () => {
     if (validate()) {
@@ -91,7 +90,9 @@ function Connection() {
               }}
               style={{ marginLeft: "2%" }}
             >
-              <Link to="/acceuille">connection</Link>
+              <Link style={{ textDecoration: "none" }} to="/acceuille">
+                connection
+              </Link>
             </Button>
             <Button
               color="secondary"
@@ -101,14 +102,15 @@ function Connection() {
             >
               Annuler
             </Button>
-            <Link to="/creationcompte">
+            <Link style={{ textDecoration: "none" }} to="/creationcompte">
               <Typography
                 variant="subtitle2"
                 style={{
                   marginLeft: "2%",
                 }}
+                component="div"
               >
-                creer un compte
+                creation compte
               </Typography>
             </Link>
           </Grid>

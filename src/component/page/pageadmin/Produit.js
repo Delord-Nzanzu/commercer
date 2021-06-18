@@ -9,16 +9,19 @@ function Produit() {
   const [taille, setTaille] = useState([]);
   const [data, setData] = useState([]);
   const [, setDidMound] = useState(false);
+  const [selectfile, setSelectFile] = useState();
 
   const variable = {
     designationproduit: "",
     quantite: "",
     prixunitaire: "",
-    categorie: "",
+    // categorie: "",
     taille: "",
-    file: "",
   };
 
+  const onChange = (e) => {
+    setSelectFile(e.target.files[0]);
+  };
   useEffect(() => {
     setDidMound(true);
     try {
@@ -51,7 +54,7 @@ function Produit() {
       : "complter cet champs";
     tbs.quantite = values.quantite ? "" : "complter cet champs";
     tbs.prixunitaire = values.prixunitaire ? "" : "complter cet champs";
-    tbs.categorie = values.categorie ? "" : "complter cet champs";
+    // tbs.categorie = values.categorie ? "" : "complter cet champs";
     tbs.taille = values.taille ? "" : "complter cet champs";
     setError({ ...tbs });
     return Object.values(tbs).every((x) => x === "");
@@ -67,14 +70,23 @@ function Produit() {
           qteStock: parseInt(values.quantite),
           montant: parseFloat(values.prixunitaire),
           refCategorie: values.categorie,
+          image: selectfile,
         };
-        Api.post("product/save", datass)
-          .then((result) => {
-            console.log(result);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        const cf = new FormData();
+        cf.append("designation", values.designationproduit);
+        cf.append("qteStock", values.quantite);
+        cf.append("montant", values.prixunitaire);
+        cf.append("refCategorie", values.categorie);
+        cf.append("image", selectfile);
+
+        console.log(selectfile);
+        // Api.post("product/save", cf)
+        //   .then((result) => {
+        //     console.log(result);
+        //   })
+        //   .catch((err) => {
+        //     console.log(err);
+        //   });
       } catch (error) {}
     }
   };
@@ -153,22 +165,7 @@ function Produit() {
               />
             </Grid>
             <Grid item xs={6}>
-              <Index.Input
-                name="file"
-                value={values.file}
-                onChange={onchange}
-                error={error.categorie}
-                type="file"
-              />
-              <Index.Input
-                label="Categorie"
-                name="categorie"
-                value={values.categorie}
-                onChange={onchange}
-                error={error.categorie}
-                type=""
-                variant="outlined"
-              />
+              <input type="file" name="file" onChange={(e) => onChange(e)} />
               <Index.Combobox
                 label="Taille"
                 name="taille"

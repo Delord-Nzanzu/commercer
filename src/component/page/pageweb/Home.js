@@ -21,12 +21,14 @@ function Home() {
             variant="subtitle1"
             component="div"
             style={{
-              color: "#FFFFFF",
-              fontSize: "50px",
+              color: "red",
+
+              fontSize: "100px",
               marginLeft: "5%",
+              marginTop: "8%",
             }}
           >
-            Maison d'habillement Exostie yes
+            DUKA LETU
           </Typography>
         </Grid>
       </Box>

@@ -38,6 +38,7 @@ function Carouseles() {
           style={{
             backgroundColor: "#3A8787",
             marginBottom: "2%",
+            marginTop: "0.4%",
             color: "white",
             height: "5vw",
             alignItems: "center",

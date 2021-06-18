@@ -32,6 +32,23 @@ function Categories() {
     setOpen(true);
     setData(e);
   };
+
+  const { values, onchange, error, setError } = Index.Etat(variable);
+  useEffect(() => {
+    setDidMound(true);
+    try {
+      Api.get("category/show/all")
+        .then((result) => {
+          setTimeout(() => {
+            setCategories(result.data);
+          }, 1000);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {}
+    return () => setDidMound(false);
+  }, [categories]);
   const data = categories.map((item) => {
     return {
       id: item.id,
@@ -57,23 +74,6 @@ function Categories() {
       field: "update",
     },
   ];
-  const { values, onchange, error, setError } = Index.Etat(variable);
-  useEffect(() => {
-    setDidMound(true);
-    try {
-      Api.get("category/show/all")
-        .then((result) => {
-          setTimeout(() => {
-            setCategories(result.data);
-          }, 2000);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } catch (error) {}
-    return () => setDidMound(false);
-  }, [categories]);
-
   const Save = () => {
     if (valaidate()) {
       try {
