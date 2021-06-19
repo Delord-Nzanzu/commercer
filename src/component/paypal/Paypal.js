@@ -4,7 +4,6 @@ import React from "react";
 function Paypal({ montant, destination }) {
   const [paid, setPaid] = React.useState(false);
   const [error, setError] = React.useState(null);
-
   const paypal = React.useRef();
   React.useEffect(() => {
     window.paypal
@@ -16,8 +15,8 @@ function Paypal({ montant, destination }) {
               {
                 description: "Your description",
                 amount: {
-                  currency_code: "USD",
-                  value: { montant },
+                  currency_code: "CAD",
+                  value: montant,
                 },
               },
             ],
@@ -26,7 +25,7 @@ function Paypal({ montant, destination }) {
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
           setPaid(true);
-          console.log(order);
+          console.log("ok ==>" + order);
         },
         onError: (err) => {
           //   setError(err),
