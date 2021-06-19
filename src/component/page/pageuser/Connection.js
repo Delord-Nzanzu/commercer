@@ -10,6 +10,9 @@ import { Index } from "../../etat/Index";
 import { Link } from "react-router-dom";
 import ActionUser from "../../redux/actionicons/ActionUser";
 import { useDispatch } from "react-redux";
+import Api from "../../axios/Api";
+import Alerts from "../../menu/alert/Alerts";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -24,11 +27,16 @@ const varaible = {
 };
 
 function Connection() {
+  const [etat, setEtat] = useState(false);
+  const [etat2, setEtat2] = useState(false);
+  const [datalert, setDatalert] = useState({
+    typeError: "",
+    titleError: "",
+    messageError: "",
+  });
   const dispatch = useDispatch();
   const disp = useDispatch();
   const classes = useStyles();
-
-  // const hstoiry = useHistory();
 
   const validate = () => {
     let tbs = {};
@@ -42,9 +50,29 @@ function Connection() {
 
   const logine = () => {
     if (validate()) {
-      dispatch(ActionUser());
-      disp({ type: "etatachatlogine" });
-      sessionStorage.setItem("tockenclient", values.email);
+      try {
+        const data = {
+          username: values.email,
+          password: values.password,
+        };
+        Api.post("client/login", data)
+          .then((result) => {
+            console.log(result.data);
+            dispatch(ActionUser());
+            setEtat2(true);
+            setEtat(true);
+            setDatalert({
+              typeError: "error",
+              titleError: "Error",
+              messageError: result.data.message,
+            });
+            disp({ type: "etatachatlogine" });
+            sessionStorage.setItem("tockenclient", values.email);
+          })
+          .catch((err) => {});
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
   return (
@@ -90,9 +118,13 @@ function Connection() {
               }}
               style={{ marginLeft: "2%" }}
             >
-              <Link style={{ textDecoration: "none" }} to="/acceuille">
-                connection
-              </Link>
+              {etat2 === true ? (
+                <Link style={{ textDecoration: "none" }} to="/acceuille">
+                  connection
+                </Link>
+              ) : (
+                "connection"
+              )}
             </Button>
             <Button
               color="secondary"
@@ -115,6 +147,16 @@ function Connection() {
             </Link>
           </Grid>
         </Paper>
+        {etat === true ? (
+          <Alerts
+            typeError={datalert.typeError}
+            titleError={datalert.titleError}
+            messageError={datalert.messageError}
+            etat={true}
+          />
+        ) : (
+          ""
+        )}
       </Index.Form>
     </Grid>
   );

@@ -32,11 +32,12 @@ function CreationCompte() {
       try {
         const data = {
           nomClient: values.nom,
-          prenomClient: values.postnom,
+          prenomClient: values.prenom,
           numTel: values.telephone,
           passwordClient: values.password,
           email: values.email,
         };
+        console.log("==> " + values.postnom);
         Api.post("client/save", data)
           .then((result) => {
             console.log(result.data);

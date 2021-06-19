@@ -7,6 +7,8 @@ const initialisation = {
   afficheachat: false,
   etatachatlogine: true,
   paiement: false,
+  montantpayer: 0,
+  destinationlivraison: "",
 };
 
 function ActionIconsAdmin(state = initialisation, action) {
@@ -70,6 +72,17 @@ function ActionIconsAdmin(state = initialisation, action) {
       return {
         ...state,
         paiement: (state.paiement = true),
+      };
+    case "montantpayer":
+      return {
+        ...state,
+        montantpayer: (state.montantpayer = state.achat),
+      };
+    case "destinationlivraison":
+      return {
+        ...state,
+        destinationlivraison: (state.destinationlivraison =
+          state.destinationlivraison),
       };
     default:
       return state;

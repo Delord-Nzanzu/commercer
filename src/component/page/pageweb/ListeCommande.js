@@ -12,6 +12,9 @@ import { BackspaceSharp } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
 import { Index } from "../../etat/Index";
 import { Link } from "react-router-dom";
+import Paiement from "./Paiement";
+import MDialogue from "../../menu/dialog/MDialogue";
+import { useState } from "react";
 
 const variable = {
   address: "",
@@ -19,6 +22,7 @@ const variable = {
 
 function ListeCommande(props) {
   const { achat } = props;
+  const [open, setOpen] = useState(false);
   const validate = () => {
     let tbs = {};
     tbs.address = values.address ? "" : "completer cette champs";
@@ -44,6 +48,7 @@ function ListeCommande(props) {
   //validate
   const valide = () => {
     if (validate()) {
+      setOpen(true);
     }
   };
   const colonne = [
@@ -105,14 +110,15 @@ function ListeCommande(props) {
                 style={{ marginLeft: "5%" }}
                 onClick={() => valide()}
               >
-                <Link to="/Paiement" style={{ textDecoration: "none" }}>
-                  Acheter
-                </Link>
+                Acheter
               </Button>
             </Index.Form>
           </Grid>
         </Grid>
       </Container>
+      <MDialogue title="Piement" open={open} setOpen={setOpen} taille="md">
+        <Paiement montant={xx} destination={values.address} />
+      </MDialogue>
     </Grid>
   );
 }

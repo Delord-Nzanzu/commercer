@@ -13,7 +13,7 @@ function Home() {
           justifyContent: "center",
           alignItems: "center",
         }}
-        height="30vw"
+        height="20vw"
         width="100vw"
       >
         <Grid item xs={12}>
@@ -25,7 +25,7 @@ function Home() {
 
               fontSize: "100px",
               marginLeft: "5%",
-              marginTop: "8%",
+              marginTop: "2%",
             }}
           >
             DUKA LETU

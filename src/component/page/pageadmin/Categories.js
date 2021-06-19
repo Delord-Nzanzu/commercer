@@ -55,7 +55,7 @@ function Categories() {
       designation: item.designation,
       update: (
         <IconButton onClick={() => update(item)} key={item.id}>
-          <BorderColor color="primary" style={{ marginRight: "5%" }} />
+          <BorderColor style={{ marginRight: "5%", color: "white" }} />
         </IconButton>
       ),
     };
@@ -129,9 +129,14 @@ function Categories() {
           <MaterialTable
             data={data}
             columns={column}
-            // style={{ padding: "10%" }}
+            title="Categoris"
+            style={{
+              padding: "5%",
+              backgroundColor: "#528686",
+              color: "white",
+            }}
           />
-          <MDialogue title="Modifier" open={open} setOpen={setOpen} taille="lg">
+          <MDialogue title="Modifier" open={open} setOpen={setOpen} taille="md">
             <UpdateCategories categories={datas} />
           </MDialogue>
         </Container>

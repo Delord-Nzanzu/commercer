@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
 import React from "react";
 
-function Paypal() {
+function Paypal({ montant, destination }) {
   const [paid, setPaid] = React.useState(false);
   const [error, setError] = React.useState(null);
   const paypal = React.useRef();
@@ -16,7 +16,7 @@ function Paypal() {
                 description: "Your description",
                 amount: {
                   currency_code: "USD",
-                  value: 5.0,
+                  value: montant,
                 },
               },
             ],

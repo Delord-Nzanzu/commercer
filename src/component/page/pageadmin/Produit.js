@@ -9,7 +9,7 @@ function Produit() {
   const [taille, setTaille] = useState([]);
   const [data, setData] = useState([]);
   const [, setDidMound] = useState(false);
-  const [selectfile, setSelectFile] = useState();
+  const [selectfile, setSelectFile] = useState(null);
 
   const variable = {
     designationproduit: "",
@@ -69,24 +69,34 @@ function Produit() {
           designation: values.designationproduit,
           qteStock: parseInt(values.quantite),
           montant: parseFloat(values.prixunitaire),
-          refCategorie: values.categorie,
+          refCategorie: values.taille,
           image: selectfile,
         };
-        const cf = new FormData();
-        cf.append("designation", values.designationproduit);
-        cf.append("qteStock", values.quantite);
-        cf.append("montant", values.prixunitaire);
-        cf.append("refCategorie", values.categorie);
-        cf.append("image", selectfile);
+        // let uplodeImage = new FormData();
+        // uplodeImage.append("designation", values.designationproduit);
+        // uplodeImage.append("qteStock", values.quantite);
+        // uplodeImage.append("montant", values.prixunitaire);
+        // uplodeImage.append("refCategorie", values.taille);
+        // uplodeImage.append("image", selectfile, selectfile.name);
 
-        console.log(selectfile);
-        // Api.post("product/save", cf)
-        //   .then((result) => {
-        //     console.log(result);
-        //   })
-        //   .catch((err) => {
-        //     console.log(err);
-        //   });
+        console.log(
+          values.taille +
+            "  " +
+            values.designationproduit +
+            "  " +
+            values.prixunitaire +
+            "  " +
+            values.quantite +
+            "  " +
+            selectfile
+        );
+        Api.post("product/save", datass)
+          .then((result) => {
+            console.log(result.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       } catch (error) {}
     }
   };
@@ -115,10 +125,10 @@ function Produit() {
       title: "categorie",
       field: "refCategorie",
     },
-    {
-      title: "taille",
-      field: "taille",
-    },
+    // {
+    //   title: "taille",
+    //   field: "taille",
+    // },
   ];
 
   return (
@@ -131,7 +141,7 @@ function Produit() {
         }}
       >
         <Typography variant="h6" align="left">
-          Gestion des produits
+          Produits
         </Typography>
         <Index.Form>
           <Grid container>
@@ -165,7 +175,12 @@ function Produit() {
               />
             </Grid>
             <Grid item xs={6}>
-              <input type="file" name="file" onChange={(e) => onChange(e)} />
+              <input
+                type="file"
+                name="file"
+                onChange={(e) => onChange(e)}
+                accept=".jpg, .jpeg, .png"
+              />
               <Index.Combobox
                 label="Taille"
                 name="taille"
@@ -196,10 +211,16 @@ function Produit() {
           </Grid>
         </Index.Form>
         <MaterialTable
-          title="Liste des produits"
+          title="Listes"
           data={datas}
           columns={column}
-          style={{ marginBottom: "2%", marginTop: "1%", padding: "2%" }}
+          style={{
+            marginBottom: "2%",
+            marginTop: "1%",
+            padding: "2%",
+            backgroundColor: "#528686",
+            color: "white",
+          }}
         />
       </Container>
     </Grid>

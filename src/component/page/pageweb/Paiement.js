@@ -18,8 +18,11 @@ import Paypal from "../../paypal/Paypal";
 const variable = {
   address: "",
 };
-function Paiement() {
+function Paiement(props) {
   const [typeselectionne, setTypeselectionne] = useState("");
+
+  const montant = props.montant;
+  const destination = props.destination;
   // const [checkout, setCheckOut]=useState(false)
   // const classes = useStyles();
   const selePaiement = useSelector((store) => store.paiement); //on pointe sur le varibale du state
@@ -90,11 +93,11 @@ function Paiement() {
             {" "}
             <Index.Form>
               <Typography variant="subtitle1" style={{ marginBottom: "2%" }}>
-                Entre le mot de passe pour le compte {typeselectionne}
+                {typeselectionne}
               </Typography>
 
               {typeselectionne === "Paypal" ? (
-                <Paypal />
+                <Paypal montant={montant} destination={destination} />
               ) : (
                 <Index.Input
                   label="Password"

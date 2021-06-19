@@ -42,10 +42,10 @@ function Carouseles() {
             color: "white",
             height: "5vw",
             alignItems: "center",
-            fontSize: "50px",
+            fontSize: "25px",
           }}
         >
-          Publiciter
+          Nouveauté
         </Typography>
         <Carousel
           fullHeightHover={false}
