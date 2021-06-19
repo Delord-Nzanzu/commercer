@@ -23,6 +23,7 @@ const variable = {
 function ListeCommande(props) {
   const { achat } = props;
   const [open, setOpen] = useState(false);
+  const dispt = useDispatch();
   const validate = () => {
     let tbs = {};
     tbs.address = values.address ? "" : "completer cette champs";
@@ -108,7 +109,10 @@ function ListeCommande(props) {
                 size="small"
                 color="primary"
                 style={{ marginLeft: "5%" }}
-                onClick={() => valide()}
+                onClick={() => {
+                  dispt({ type: "achazero" });
+                  valide();
+                }}
               >
                 Acheter
               </Button>

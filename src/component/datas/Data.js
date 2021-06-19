@@ -23,7 +23,7 @@ export const DataSideAdmin = [
   {
     id: "1",
     title: "DashBo",
-    lik: "/dashbo",
+    lik: "/adminehome",
     icons: <Dashboard style={{ color: "white" }} />,
   },
   {
@@ -163,13 +163,13 @@ export const DataUser = [
   {
     id: "2",
     title: "Mes commandes",
-    link: "/#",
+    link: "/listeCommandeClient",
     icons: <AddShoppingCart fontSize="small" color="primary" />,
   },
   {
     id: "3",
     title: "Déconnection",
-    link: "/#",
+    link: "/acceuille",
     icons: <SettingsPower fontSize="small" color="primary" />,
   },
 ];

@@ -17,6 +17,7 @@ import RemerciementPaiement from "./component/page/pageweb/RemerciementPaiement"
 import Paiement from "./component/page/pageweb/Paiement";
 import Profile from "./component/page/pageuser/Profile";
 import Footer from "./component/page/pageweb/Footer";
+import ListeCommandeClient from "./component/page/pageuser/ListeCommandeClient";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/categories" component={Categories} />
           <Route path="/profile" component={Profile} />
           <Route path="/remerciement" component={RemerciementPaiement} />
+          <Route path="/listeCommandeClient" component={ListeCommandeClient} />
         </Switch>
         <Footer />
       </Provider>

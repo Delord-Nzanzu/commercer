@@ -99,32 +99,34 @@ function Paiement(props) {
               {typeselectionne === "Paypal" ? (
                 <Paypal montant={montant} destination={destination} />
               ) : (
-                <Index.Input
-                  label="Password"
-                  name="address"
-                  value={values.address}
-                  onChange={onchange}
-                  type="password"
-                  variant="outlined"
-                  error={error.address}
-                />
+                <Typography component="div">
+                  <Index.Input
+                    label="Password"
+                    name="address"
+                    value={values.address}
+                    onChange={onchange}
+                    type="password"
+                    variant="outlined"
+                    error={error.address}
+                  />
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    color="primary"
+                    onClick={() => {
+                      valide();
+                      dispZeroCompteur({ type: "achazero" });
+                    }}
+                    style={{ marginBottom: "2%" }}
+                  >
+                    <Link to="/remerciement" style={{ textDecoration: "none" }}>
+                      {" "}
+                      Valider la Trasation
+                    </Link>
+                  </Button>
+                </Typography>
               )}
             </Index.Form>
-            <Button
-              variant="outlined"
-              size="small"
-              color="primary"
-              onClick={() => {
-                valide();
-                dispZeroCompteur({ type: "achazero" });
-              }}
-              style={{ marginBottom: "2%" }}
-            >
-              <Link to="/remerciement" style={{ textDecoration: "none" }}>
-                {" "}
-                Valider la Trasation
-              </Link>
-            </Button>
           </div>
         )}
       </Grid>

@@ -62,11 +62,17 @@ function DownItemUser(props) {
                       <Link
                         to={item.link}
                         onClick={() => {
-                          dispoo({ type: "logineiconesfalse" });
+                          // dispoo({ type: "logineiconesfalse" });
                           //sessionStorage.setItem("tockenclient", null);
-                          disp({ type: "etatachatlogine" });
-                          dispItemuser({ type: "logineiconesfalse" });
-                          dispZeroCompteur({ type: "achazero" });
+                          // disp({ type: "etatachatlogine" });
+                          // dispItemuser({ type: "logineiconesfalse" });
+                          // dispZeroCompteur({ type: "achazero" });
+                          if (item.title === "Déconnection") {
+                            dispItemuser({ type: "logineiconesfalse" });
+                            dispZeroCompteur({ type: "achazero" });
+                          } else {
+                            disp({ type: "etatachatlogine" });
+                          }
                         }}
                         style={{ textDecoration: "none" }}
                       >
