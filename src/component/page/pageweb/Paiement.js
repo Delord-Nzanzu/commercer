@@ -13,6 +13,7 @@ import paypal from "../../image/paypalok.png";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Paypal from "../../paypal/Paypal";
+import imgAirtel from "../../image/imgAirtel.png";
 
 // const useStyles = makeStyles((theme) => ({}));
 const variable = {
@@ -99,31 +100,20 @@ function Paiement(props) {
               {typeselectionne === "Paypal" ? (
                 <Paypal montant={montant} destination={destination} />
               ) : (
-                <Typography component="div">
-                  <Index.Input
-                    label="Password"
-                    name="address"
-                    value={values.address}
-                    onChange={onchange}
-                    type="password"
-                    variant="outlined"
-                    error={error.address}
-                  />
-                  <Button
-                    variant="outlined"
-                    size="small"
-                    color="primary"
-                    onClick={() => {
-                      valide();
-                      dispZeroCompteur({ type: "achazero" });
+                <Typography component="div" align="center">
+                  <img
+                    src={imgAirtel}
+                    alt="Infor"
+                    style={{
+                      width: "25%",
+                      marginLeft: "5%",
+                      marginBottom: "1%",
                     }}
-                    style={{ marginBottom: "2%" }}
-                  >
-                    <Link to="/remerciement" style={{ textDecoration: "none" }}>
-                      {" "}
-                      Valider la Trasation
-                    </Link>
-                  </Button>
+                  />
+                  <Typography>
+                    cette service n'est pas disponible pour l'instant, veuillez
+                    reisseillé plutard
+                  </Typography>
                 </Typography>
               )}
             </Index.Form>
